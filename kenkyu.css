@@ -1,6 +1,11 @@
 @charset "UTF-8";
-
-background-color = ＃020204;
-h1{
-  
+.theme{
+    width: 100vw;
+    height: 100vw;
+    padding: 60px;
+    background-color: #fcfcff;
+}
+.words{
+    color: #030200;
+    font-size: 6px;
 }
