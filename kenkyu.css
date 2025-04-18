@@ -1,9 +1,9 @@
 @charset "UTF-8";
 .theme{
     width: 100vw;
-    height: 200vw;
+    height: 100vw;
     padding: 50px;
-    background-color: #f0f3ff;
+    background-color: #f4f4ff;
 }
 .words{
     color: #030200;
