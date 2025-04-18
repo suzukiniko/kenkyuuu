@@ -13,7 +13,7 @@
 .button{
     display : inline-block;
     border-radius: 10%;     /* 角の丸さ */
-    font-size: 15px;     /* 文字サイズ */
+    font-size: 30px;     /* 文字サイズ */
     text-align: center;     /* 文字の位置 */
     cursor: pointer;
     padding: 12px,12px;     /* 余白 */
@@ -23,5 +23,8 @@
     opacity: 1;     /*背景透明度*/
     transition: .3s;
     box-shadow: 3px 3px 3px #777777;    /* 影 */
-
+}
+.button:hover {
+    box-shadow: none;
+    opacity: 0.8;
 }
