@@ -2,10 +2,10 @@
 .theme{
     width: 100vw;
     height: 200vw;
-    padding: 60px;
+    padding: 50px;
     background-color: #f0f3ff;
 }
 .words{
     color: #030200;
-    font-size: 55px;
+    font-size: 30px;
 }
