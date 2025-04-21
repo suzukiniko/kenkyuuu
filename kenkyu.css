@@ -1,10 +1,5 @@
 @charset "UTF-8";
-.theme{
-    width: 100vw;
-    height: 100vw;
-    padding: 50px;
-    background-color: #f4f4ff;
-}
+
 .words{
     color: #000200;
     font-size: 30px;
