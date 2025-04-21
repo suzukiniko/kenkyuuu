@@ -10,7 +10,7 @@ function drawing(){
   ctx.fillRect(40,80,100,200);
 }
 
-var form = document.getElementById("drawing");
+var form = document.getElementById("pushed");
 form.addEventListener("submit",function(event){
   event.preventDefault();
   drawing();
