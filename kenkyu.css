@@ -14,11 +14,17 @@ html,body{
     left: 0;
     height: 100%;
     width: 100%;
+    z-index: 0;
 }
 
 .words{
     color: #000200;
     font-size: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+form{
     position: relative;
     z-index: 1;
 }
