@@ -7,8 +7,8 @@ window.addEventListener("DOMContentLoaded", function () {
   canvas.height = window.innerHeight;
 
   function drawing(){
-    ctx.fillStyle = "rgba(35,35,255,20)";
-    ctx.fillRect(100,400,200,200);
+    ctx.fillStyle = "rgba(200,200,255,30)";
+    ctx.fillRect(100,400,300,300);
   }
 
 
