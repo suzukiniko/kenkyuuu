@@ -11,7 +11,7 @@
     font-size: 30px;                      /* 文字サイズ */
     text-align: center;                   /* 文字の位置 */
     cursor: pointer;
-    padding: 12px,12px;                   /* 余白 */
+    padding: 12px 12px;                   /* 余白 */
     color: rgba(35, 52, 77, 0.75);      /* 文字色 */
     line-height: 1em;                     /* 行の高さ */
     background: #ffffd1;                /* 背景色 */
