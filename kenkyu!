@@ -2,8 +2,8 @@
 
 var canvas = document.getElementById("excanvas");
 var ctx = canvas.getContext("2d");
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 function drawing(){
   ctx.fillStyle = "rgba(35,35,255)";
