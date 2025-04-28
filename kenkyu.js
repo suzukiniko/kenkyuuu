@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const rectHeight = 300;
     const rectx = (canvas.width - rectWidth) / 2;
     const recty = (canvas.height - rectHeight) / 2;
-    ctx.fillRect(100,400,300,300);
+    ctx.fillRect(x,y,rectWidth,rectHeight);
   }
 
   const form = document.getElementById("pushed");
