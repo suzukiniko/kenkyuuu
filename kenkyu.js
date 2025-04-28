@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   resizeCanvas();
 
-  this.window.addEventListener("resize",resizeCanvas);
+  window.addEventListener("resize",resizeCanvas);
 
   function drawing(){
     ctx.fillStyle = "rgba(200,200,255,30)";
@@ -37,11 +37,11 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function mode(state){
     if(state === "fir"){
-      document.getElementById("maizuru").innerHTML = "加藤寛章";
+      document.getElementById("maizuru").innerHTML = "home";
       document.getElementById("FamousSaying").innerHTML = "苦しき稽古を積みし身が如何して負けよう自身と気迫";
       document.getElementById("jikotosui").innerHTML = "その日は必ず来る";
     }else if(state === "sta"){
-      document.getElementById("maizuru").innerHTML = "長野雅樹";
+      document.getElementById("maizuru").innerHTML = "modeSelect";
       document.getElementById("FamousSaying").innerHTML = "セルフ・マネジメント";
       document.getElementById("jikotosui").innerHTML = "";
       document.getElementById("pushed").style.display = "none";
