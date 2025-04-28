@@ -6,13 +6,23 @@ window.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("excanvas");
   const ctx = canvas.getContext("2d");
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
   mode(jotai);
+
+  function resizeCanvas(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  resizeCanvas();
+
+  this.window.addEventListener("resize",resizeCanvas);
 
   function drawing(){
     ctx.fillStyle = "rgba(200,200,255,30)";
+    const rectWidth = 300;
+    const rectHeight = 300;
+    const rectx = (canvas.width - rectWidth) / 2;
+    const recty = (canvas.height - rectHeight) / 2;
     ctx.fillRect(100,400,300,300);
   }
 
