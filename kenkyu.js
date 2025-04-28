@@ -21,13 +21,12 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-var jotai = "fir"
 function mode(state){
-  if(jotai == "fir"){
+  if(state == "fir"){
     document.getElementById("kenkyu").innerHTML = "KENKYU";
     document.getElementById("jishintokihaku").innerHTML = "苦しき稽古を積みし身が如何して負けよう自身と気迫";
     document.getElementById("thatDay").innerHTML = "その日は必ず来る";
-  }else if(jotai == "sta"){
+  }else if(state == "sta"){
     document.getElementById("kenkyu").innerHTML = "code moved";
     document.getElementById("jishintokihaku").innerHTML = "";
     document.getElementById("thatDay").innerHTML = "";
