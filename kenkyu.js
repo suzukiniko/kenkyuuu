@@ -27,13 +27,13 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function mode(state){
     if(state === "fir"){
-      document.getElementById("kenkyu").innerHTML = "KENKYU";
-      document.getElementById("jishintokihaku").innerHTML = "苦しき稽古を積みし身が如何して負けよう自身と気迫";
-      document.getElementById("thatDay").innerHTML = "その日は必ず来る";
+      document.getElementById("maizuru").innerHTML = "加藤寛章";
+      document.getElementById("FamousSaying").innerHTML = "苦しき稽古を積みし身が如何して負けよう自身と気迫";
+      document.getElementById("jikotosui").innerHTML = "その日は必ず来る";
     }else if(state === "sta"){
-      document.getElementById("kenkyu").innerHTML = "code moved";
-      document.getElementById("jishintokihaku").innerHTML = "";
-      document.getElementById("thatDay").innerHTML = "";
+      document.getElementById("maizuru").innerHTML = "長野雅樹";
+      document.getElementById("FamousSaying").innerHTML = "セルフ・マネジメント";
+      document.getElementById("jikotosui").innerHTML = "";
       document.getElementById("pushed").style.display = "none";
     }
   }
