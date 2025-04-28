@@ -1,11 +1,15 @@
 //kenkyuuuuuuuuuuuuu
 
+var jotai = "fir";
+
 window.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("excanvas");
   const ctx = canvas.getContext("2d");
 
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+
+  mode(jotai);
 
   function drawing(){
     ctx.fillStyle = "rgba(200,200,255,30)";
@@ -16,7 +20,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit",function(event){
     event.preventDefault();
-    mode("sta");
+    jotai = "sta"
+    mode(jotai);
     drawing();
   });
 
