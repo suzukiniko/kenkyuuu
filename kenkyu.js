@@ -15,6 +15,23 @@ window.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("pushed");
   form.addEventListener("submit",function(event){
     event.preventDefault();
+
+    mode("sta");
     drawing();
   });
 });
+
+var jotai = "fir"
+function mode(state){
+  if(jotai == "fir"){
+    document.getElementById("kenkyu").innerHTML = "KENKYU";
+    document.getElementById("jishintokihaku").innerHTML = "苦しき稽古を積みし身が如何して負けよう自身と気迫";
+    document.getElementById("thatDay").innerHTML = "その日は必ず来る";
+  }else if(jotai == "sta"){
+    document.getElementById("kenkyu").innerHTML = "code moved";
+    document.getElementById("jishintokihaku").innerHTML = "";
+    document.getElementById("thatDay").innerHTML = "";
+  }
+
+  mode(fir);
+}

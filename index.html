@@ -3,23 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenkyu17</title>
+    <title>Kenkyu18</title>
     <link rel = "stylesheet" type = "text/css" href = "kenkyu.css">
 </head>
 <body>
     <canvas id = "excanvas"></canvas>
-    <script src = "kenkyu.js">
-        var jotai = "fir"
-        function mode(jotai){
-            if(jotai = "fir"){
-                document.getElementById("kenkyu").innerHTML = "KENKYU";
-                document.getElementById("jishintokihaku").innerHTML = "苦しき稽古を積みし身が如何して負けよう自身と気迫";
-                document.getElementById("thatDay").innerHTML = "その日は必ず来る";
-            }else if(jotai = "sta"){
-                document.getElementById("kenkyu").innerHTML = "code movind";
-            }
-        }
-    </script>
     <div class = "words">
         <!-- custom word -->
         <h1 id = "kenkyu"></h1>
@@ -29,5 +17,6 @@
     <form id = "pushed">
        <p><input type = "submit" value="start" class = "button" onclick = "mode('sta')"></p>
     </form>
+    <script src = "kenkyu.js"></script>
 </body>
 </html>
