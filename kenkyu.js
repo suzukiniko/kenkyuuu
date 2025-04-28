@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", function () {
       document.getElementById("kenkyu").innerHTML = "code moved";
       document.getElementById("jishintokihaku").innerHTML = "";
       document.getElementById("thatDay").innerHTML = "";
+      document.getElementById("pushed").innerHTML = "";
     }
   }
-  mode(fir);
 });
