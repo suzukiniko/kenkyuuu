@@ -1,10 +1,12 @@
 //kenkyuuuuuuuuuuuuu
 
-var jotai = "fir";
+
 
 window.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("excanvas");
   const ctx = canvas.getContext("2d");
+
+  let jotai = "fir";
 
   mode(jotai);
 
@@ -40,11 +42,17 @@ window.addEventListener("DOMContentLoaded", function () {
       document.getElementById("maizuru").innerHTML = "home";
       document.getElementById("FamousSaying").innerHTML = "苦しき稽古を積みし身が如何して負けよう自身と気迫";
       document.getElementById("jikotosui").innerHTML = "その日は必ず来る";
+      document.getElementById("pushed").style.display = "block";
+      jotai = "fir";
     }else if(state === "sta"){
       document.getElementById("maizuru").innerHTML = "modeSelect";
       document.getElementById("FamousSaying").innerHTML = "セルフ・マネジメント";
       document.getElementById("jikotosui").innerHTML = "";
       document.getElementById("pushed").style.display = "none";
+      jotai = "sta";
     }
   }
+
+  const buttons = document.querySelectorAll("#pushed button");
+  buttons.forEach(button => button.addEventListener("click", handleButtonClick));
 });

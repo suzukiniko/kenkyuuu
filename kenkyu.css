@@ -44,6 +44,7 @@ form{
     box-shadow: 3px 3px 3px #777777;    /* 影 */
     position: relative;
     z-index: 1;
+    margin: 0 10px;                       /* ボタン間のスペース */
 }
 .button:hover {
     box-shadow: none;
