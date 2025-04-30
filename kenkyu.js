@@ -25,14 +25,14 @@ window.addEventListener("DOMContentLoaded", function () {
     const rectHeight = 300;
     const rectx = (canvas.width - rectWidth) / 2;
     const recty = (canvas.height - rectHeight) / 2;
-    ctx.fillRect(x,y,rectWidth,rectHeight);
+    ctx.fillRect(rectx,recty,rectWidth,rectHeight);
   }
 
   const form = document.getElementById("pushed");
 
   form.addEventListener("submit",function(event){
     event.preventDefault();
-    jotai = "sta"
+    jotai = "sta";
     mode(jotai);
     drawing();
   });
