@@ -30,12 +30,26 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const form = document.getElementById("pushed");
 
-  function handleButtonClick(event){
+  function started(event){
     event.preventDefault();
-    jotai = "sta";
+    jotai = "starting";
     mode(jotai);
     drawing();
   };
+
+  function moded(event){
+    event.preventDefault();
+    jotai = "moding";
+    mode(jotai);
+    drawing();
+  }
+
+  function selected(event){
+    event.preventDefault();
+    jotai = "selecting";
+    mode(jotai);
+    drawing();
+  }
 
   function mode(state){
     if(state === "fir"){
@@ -50,9 +64,26 @@ window.addEventListener("DOMContentLoaded", function () {
       document.getElementById("jikotosui").innerHTML = "";
       document.getElementById("pushed").style.display = "none";
       jotai = "sta";
+    }else if(state === "starting"){
+      document.getElementById("maizuru").innerHTML = "starting";
+      document.getElementById("FamousSaying").innerHTML = "始めるよ"
+      document.getElementById("jikotosui").innerHTML = ""
+      document.getElementById("pushed").style.display = "none"
+    }else if(state === "moding"){
+      document.getElementById("maizuru").innerHTML = "moding";
+      document.getElementById("FamousSaying").innerHTML = "モードを選んでね"
+      document.getElementById("jikotosui").innerHTML = ""
+      document.getElementById("pushed").style.display = "none"
+    }else if(state === "selecting"){
+      document.getElementById("maizuru").innerHTML = "selecting";
+      document.getElementById("FamousSaying").innerHTML = "選択してね"
+      document.getElementById("jikotosui").innerHTML = ""
+      document.getElementById("pushed").style.display = "none"
     }
   }
 
-  const buttons = document.querySelectorAll("#pushed button");
-  buttons.forEach(button => button.addEventListener("click", handleButtonClick));
+  document.getElementById("start").addEventListener("click",started);
+  document.getElementById("mode").addEventListener("click",moded);
+  document.getElementById("select").addEventListener("click",selected);
+
 });
