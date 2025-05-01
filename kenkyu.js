@@ -30,12 +30,12 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const form = document.getElementById("pushed");
 
-  form.addEventListener("submit",function(event){
+  function handleButtonClick(event){
     event.preventDefault();
     jotai = "sta";
     mode(jotai);
     drawing();
-  });
+  };
 
   function mode(state){
     if(state === "fir"){
