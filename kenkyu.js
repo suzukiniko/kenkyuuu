@@ -69,16 +69,19 @@ window.addEventListener("DOMContentLoaded", function () {
       document.getElementById("FamousSaying").innerHTML = "始めるよ"
       document.getElementById("jikotosui").innerHTML = ""
       document.getElementById("pushed").style.display = "none"
+      jotai = "starting";
     }else if(state === "moding"){
       document.getElementById("maizuru").innerHTML = "moding";
       document.getElementById("FamousSaying").innerHTML = "モードを選んでね"
       document.getElementById("jikotosui").innerHTML = ""
       document.getElementById("pushed").style.display = "none"
+      jotai = "moding";
     }else if(state === "selecting"){
       document.getElementById("maizuru").innerHTML = "selecting";
       document.getElementById("FamousSaying").innerHTML = "選択してね"
       document.getElementById("jikotosui").innerHTML = ""
       document.getElementById("pushed").style.display = "none"
+      jotai = "selecting";
     }
   }
 
