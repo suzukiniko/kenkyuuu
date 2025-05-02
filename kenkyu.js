@@ -80,8 +80,8 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  document.getElementById("start").addEventListener("click",started);
-  document.getElementById("mode").addEventListener("click",moded);
-  document.getElementById("select").addEventListener("click",selected);
+  document.getElementById("start").addEventListener("onclick",started);
+  document.getElementById("mode").addEventListener("onclick",moded);
+  document.getElementById("select").addEventListener("onclick",selected);
 
 });
