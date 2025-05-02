@@ -30,27 +30,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const form = document.getElementById("pushed");
 
-  function started(event){
-    event.preventDefault();
-    jotai = "starting";
-    mode(jotai);
-    drawing();
-  };
-
-  function moded(event){
-    event.preventDefault();
-    jotai = "moding";
-    mode(jotai);
-    drawing();
-  }
-
-  function selected(event){
-    event.preventDefault();
-    jotai = "selecting";
-    mode(jotai);
-    drawing();
-  }
-
   function mode(){
     if(jotai === "fir"){
       document.getElementById("maizuru").innerHTML = "home";
@@ -80,8 +59,23 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  document.getElementById("start").addEventListener("onclick",started);
-  document.getElementById("mode").addEventListener("onclick",moded);
-  document.getElementById("select").addEventListener("onclick",selected);
+  document.getElementById("start").addEventListener("onclick",function(event){
+    event.preventDefault();
+    jotai = "starting";
+    mode(jotai);
+    drawing();
+  });
+  document.getElementById("mode").addEventListener("onclick",function(event){
+    event.preventDefault();
+    jotai = "moding";
+    mode(jotai);
+    drawing();
+  });
+  document.getElementById("select").addEventListener("onclick",function(event){
+    event.preventDefault();
+    jotai = "moding"
+    mode(jotai);
+    drawing();
+  });
 
 });
