@@ -59,19 +59,19 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  document.getElementById("start").addEventListener("onclick",function(event){
+  document.getElementById("start").addEventListener("click",function(event){
     event.preventDefault();
     jotai = "starting";
     mode(jotai);
     drawing();
   });
-  document.getElementById("mode").addEventListener("onclick",function(event){
+  document.getElementById("mode").addEventListener("click",function(event){
     event.preventDefault();
     jotai = "moding";
     mode(jotai);
     drawing();
   });
-  document.getElementById("select").addEventListener("onclick",function(event){
+  document.getElementById("select").addEventListener("click",function(event){
     event.preventDefault();
     jotai = "moding"
     mode(jotai);
