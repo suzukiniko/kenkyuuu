@@ -17,6 +17,14 @@ html,body{
     z-index: 0;
 }
 
+.maizuruPhoto{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 .words{
     color: #000200;
     font-size: 30px;
