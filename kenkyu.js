@@ -73,7 +73,7 @@ window.addEventListener("DOMContentLoaded", function () {
   });
   document.getElementById("select").addEventListener("click",function(event){
     event.preventDefault();
-    jotai = "moding"
+    jotai = "selecting"
     mode(jotai);
     drawing();
   });
