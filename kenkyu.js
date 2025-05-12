@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const rectWidth = 300;
       const rectHeight = 300;
       const rectx = (canvas.width - rectWidth) / 2;
-      const recty = (canvas.height - rectHeight) / 2;
+      const recty = (canvas.height - rectHeight/2) / 2;
       ctx.fillRect(rectx,recty,rectWidth,rectHeight);
   }
 
@@ -39,7 +39,7 @@ window.addEventListener("DOMContentLoaded", function () {
     ctx.beginPath();
     ctx.moveTo(triangleXY, triangleXY);
     ctx.lineTo(triangleXY + triangleWidth, triangleXY);
-    ctx.lineTo(triangleXY +  (triangleWidth / 2), triangleXY - (triangleWidth * Math.sqrt(3)));
+    ctx.lineTo(triangleXY +  (triangleWidth / 2), triangleXY - (triangleWidth * Math.sqrt(3) / 2));
     ctx.closePath();
     ctx.fill();
   }
@@ -50,11 +50,11 @@ window.addEventListener("DOMContentLoaded", function () {
     const hexagonXY = (canvas.width - hexagonWidth) / 2;
     ctx.beginPath();
     ctx.moveTo(hexagonXY,hexagonXY);
-    ctx.lineTo(hexagonXY + (hexagonWidth / 4),hexagonXY + (hexagonWidth * Math.sqrt(3)));
-    ctx.lineTo(hexagonXY + (3 * hexagonWidth / 4),hexagonXY + (hexagonWidth + Math.sqrt(3)));
+    ctx.lineTo(hexagonXY + (hexagonWidth / 4),hexagonXY + (hexagonWidth * Math.sqrt(3) / 2));
+    ctx.lineTo(hexagonXY + (3 * hexagonWidth / 4),hexagonXY + (hexagonWidth + Math.sqrt(3) / 2));
     ctx.lineto(hexagonXY + hexagonWidth,hexagonXY);
-    ctx.lineTo(hexagonXY + (3 * hexagonWidth / 4),hexagonXY - (hexagonWidth + Math.sqrt(3)));
-    ctx.lineTo(hexagonXY + (hexagonWidth / 4),hexagonXY - (hexagonWidth + Math.sqrt(3)));
+    ctx.lineTo(hexagonXY + (3 * hexagonWidth / 4),hexagonXY - (hexagonWidth + Math.sqrt(3) / 2));
+    ctx.lineTo(hexagonXY + (hexagonWidth / 4),hexagonXY - (hexagonWidth + Math.sqrt(3) / 2));
     ctx.closePath();
     ctx.fill();
     }
