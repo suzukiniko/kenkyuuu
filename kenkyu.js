@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", function () {
     ctx.fillStyle = "rgba(255,0,0,0.8)"
     const triangleWidth = 300;
     const triangleX = (canvas.width - triangleWidth) / 2;
-    const triangleY = (canvas.width - triangleWidth)
+    const triangleY = (canvas.width - triangleWidth);
     ctx.beginPath();
     ctx.moveTo(triangleX, triangleY);
     ctx.lineTo(triangleX + triangleWidth, triangleY);
