@@ -41,21 +41,25 @@ window.addEventListener("DOMContentLoaded", function () {
       document.getElementById("FamousSaying").innerHTML = "セルフ・マネジメント";
       document.getElementById("jikotosui").innerHTML = "";
       document.getElementById("pushed").style.display = "none";
+      drawing();
     }else if(jotai === "starting"){
       document.getElementById("maizuru").innerHTML = "starting";
       document.getElementById("FamousSaying").innerHTML = "始めるよ"
       document.getElementById("jikotosui").innerHTML = ""
       document.getElementById("pushed").style.display = "none"
+      drawing();
     }else if(jotai === "moding"){
       document.getElementById("maizuru").innerHTML = "moding";
       document.getElementById("FamousSaying").innerHTML = "モードを選んでね"
       document.getElementById("jikotosui").innerHTML = ""
       document.getElementById("pushed").style.display = "none"
+      drawing();
     }else if(jotai === "selecting"){
       document.getElementById("maizuru").innerHTML = "selecting";
       document.getElementById("FamousSaying").innerHTML = "選択してね"
       document.getElementById("jikotosui").innerHTML = ""
       document.getElementById("pushed").style.display = "none"
+      drawing();
     }
   }
 
