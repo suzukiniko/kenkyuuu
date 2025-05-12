@@ -28,18 +28,19 @@ window.addEventListener("DOMContentLoaded", function () {
       const rectWidth = 300;
       const rectHeight = 300;
       const rectx = (canvas.width - rectWidth) / 2;
-      const recty = (canvas.height - rectHeight/2) / 2;
+      const recty = (canvas.height - rectHeight);
       ctx.fillRect(rectx,recty,rectWidth,rectHeight);
   }
 
   function triangleDrawing(){
     ctx.fillStyle = "rgba(255,0,0,0.8)"
     const triangleWidth = 300;
-    const triangleXY = (canvas.width - triangleWidth) / 2;
+    const triangleX = (canvas.width - triangleWidth) / 2;
+    const triangleY = (canvas.width - triangleWidth)
     ctx.beginPath();
-    ctx.moveTo(triangleXY, triangleXY);
-    ctx.lineTo(triangleXY + triangleWidth, triangleXY);
-    ctx.lineTo(triangleXY +  (triangleWidth / 2), triangleXY - (triangleWidth * Math.sqrt(3) / 2));
+    ctx.moveTo(triangleX, triangleY);
+    ctx.lineTo(triangleX + triangleWidth, triangleY);
+    ctx.lineTo(triangleX +  (triangleWidth / 2), triangleY - (triangleWidth * Math.sqrt(3) / 2));
     ctx.closePath();
     ctx.fill();
   }
