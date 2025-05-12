@@ -39,7 +39,7 @@ window.addEventListener("DOMContentLoaded", function () {
     ctx.beginPath();
     ctx.moveTo(triangleXY, triangleXY);
     ctx.lineTo(triangleXY + triangleWidth, triangleXY);
-    ctx.lineTo(triangleXY +  (triangleWidth / 2), triangleXY + (triangleWidth * Math.sqrt(3)));
+    ctx.lineTo(triangleXY +  (triangleWidth / 2), triangleXY - (triangleWidth * Math.sqrt(3)));
     ctx.closePath();
     ctx.fill();
   }
