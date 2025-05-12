@@ -115,7 +115,7 @@ window.addEventListener("DOMContentLoaded", function () {
   });
   document.getElementById("rectangle").addEventListener("click",function(event){
     event.preventDefault();
-    Drawing();
+    drawing();
   });
   document.getElementById("hexagon").addEventListener("click",function(event){
     event.preventDefault();
