@@ -27,29 +27,4 @@ window.addEventListener("DOMContentLoaded", function () {
     mode(jotai);
     drawing();
   });
-  document.getElementById("mode").addEventListener("click",function(event){
-    event.preventDefault();
-    jotai = "moding";
-    mode(jotai);
-    drawing();
-  });
-  document.getElementById("select").addEventListener("click",function(event){
-    event.preventDefault();
-    jotai = "selecting"
-    mode(jotai);
-    drawing();
-  });
-  document.getElementById("triangle").addEventListener("click",function(event){
-    event.preventDefault();
-    triangleDrawing();
-  });
-  document.getElementById("rectangle").addEventListener("click",function(event){
-    event.preventDefault();
-    drawing();
-  });
-  document.getElementById("hexagon").addEventListener("click",function(event){
-    event.preventDefault();
-    hexagonDrawing();
-  });
-
 });

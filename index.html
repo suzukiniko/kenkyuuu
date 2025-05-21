@@ -13,11 +13,47 @@
         <!-- custom word -->
         <h1 id = "title">学力向上アプリ</h1>
         <h3 id = "subtitle">使用する教科を選択してください</h3>
+        <form id = "gradeSelect">
+            <input type = "checkbox">
+        </form>
         <form id = "modeSelect">
-            <input type = "checkbox" name = "subject" value = "japnese">国語
-            <input type = "checkbox" name = "subject" value = "mathmatics">数学
-            <input type = "checkbox" name = ""
-
+            <input type = "checkbox" value = "japnese">国語
+            <form id = "jaGrade">
+                <input type = "checkbox" value = "gen">現代文
+                <input type = "checkbox" value = "kob">古文
+                <input type = "checkbox" value = "kan">漢文
+            </form>
+            <input type = "checkbox" value = "mathmatics">数学
+            <form id = "mathGrade">
+                <input type = "checkbox" value = "one">数学Ⅰ
+                <input type = "checkbox" value = "two">数学Ⅱ
+                <input type = "checkbox" value = "three">数学Ⅲ
+                <input type = "checkbox" value = "a">数学A
+                <input type = "checkbox" value = "b">数学B
+                <input type = "checkbox" value = "c">数学C
+            </form>
+            <input type = "checkbox" value = "english">英語
+            <input type = "checkbox" value = "physics">物理
+            <form id = "phGrade">
+                <input type = "checkbox" value = "phKiso">物理基礎
+                <input type = "checkbox" value = "phNormal">物理
+            </form>
+            <input type = "checkbox" value = "biology">生物
+            <form id = "bioGrade">
+                <input type = "checkbox" value = "bioKiso">生物基礎
+                <input type = "checkbox" value = "bioNormal">生物
+            </form>
+            <input type = "checkbox" value = "chemistry">化学
+            <form id = "cheGrade">
+                <input type = "checkbox" value = "cheKiso">化学基礎
+                <input type = "checkbox" value = "cheNormal">化学
+            </form> 
+            <input type = "checkbox" value = "history">歴史
+            <form id = "hisGrade">
+                <input type = "checkbox" value = "japan">日本史
+                <input type = "checkbox" value = "world">世界史
+            </form>
+            <input type = "checkbox" value = "geography">地理
         </form>
         <form id = "pushed">
             <button type = "submit" class = "button" id = "start">suta-to</button>
