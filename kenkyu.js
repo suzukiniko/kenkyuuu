@@ -47,8 +47,8 @@ window.addEventListener("DOMContentLoaded", function () {
       kan.style.display = "block";
     } else {
       gen.style.display = "none";
-      gen.style.display = "none";
-      gen.style.display = "none";
+      kob.style.display = "none";
+      kan.style.display = "none";
     }
   });
 
