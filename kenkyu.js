@@ -29,6 +29,17 @@ window.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("resize",resizeCanvas);
 
+  gen.style.display = "none";
+  gen.style.display = "none";
+  gen.style.display = "none";
+
+  one.style.display = "none";
+  two.style.display = "none";
+  three.style.display = "none";
+  a.style.display = "none";
+  b.style.display = "none";
+  c.style.display = "none";
+
   japanese.addEventListner("change",function(){
     if (japanese.checked) {
       gen.style.display = "block";
