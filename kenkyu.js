@@ -30,8 +30,8 @@ window.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize",resizeCanvas);
 
   gen.style.display = "none";
-  gen.style.display = "none";
-  gen.style.display = "none";
+  kob.style.display = "none";
+  kan.style.display = "none";
 
   one.style.display = "none";
   two.style.display = "none";
