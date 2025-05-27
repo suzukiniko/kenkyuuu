@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", function () {
   b.style.display = "none";
   c.style.display = "none";
 
-  japanese.addEventListner("change",function(){
+  japanese.addEventListener("change",function(){
     if (japanese.checked) {
       gen.style.display = "block";
       kob.style.display = "block";
@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  mathmatics.addEventListner("change",function(){
+  mathmatics.addEventListener("change",function(){
     if (mathmatics.checked) {
       one.style.display = "block";
       two.style.display = "block";
