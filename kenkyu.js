@@ -20,21 +20,22 @@ window.addEventListener("DOMContentLoaded", function () {
   const mathmatics = document.getElementById("mathmatics");
   
   const one = document.getElementById("one");
-  
+  const onelabel = document.getElementById("onelabel");
   
   const two = document.getElementById("two");
-  
+  const twolabel = document.getElementById("twolabel");
   
   const three = document.getElementById("three");
-  
+  const threelabel = document.getElementById("threelabel");
   
   const a = document.getElementById("a");
-  
+  const alabel = document.getElementById("alabel");
   
   const b = document.getElementById("b");
-  
+  const blabel = document.getElementById("blabel");
   
   const c = document.getElementById("c");
+  const clabel = document.getElementById("clabel")
 
   const form = document.getElementById("pushed");
 
@@ -72,18 +73,41 @@ window.addEventListener("DOMContentLoaded", function () {
   mathmatics.addEventListener("change",function(){
     if (mathmatics.checked) {
       one.style.display = "block";
+      onelabel.style.display = "inline";
+
       two.style.display = "block";
+      twolabel.style.display = "inline";
+
       three.style.display = "block";
+      threelabel.style.display = "inline";
+
       a.style.display = "block";
+      alabel.style.display = "inline";
+
       b.style.display = "block";
+      blabel.style.display = "inline";
+
       c.style.display = "block";
+      clabel.style.display = "inline";
+
     } else {
       one.style.display = "none";
+      onelabel.style.display = "none";
+
       two.style.display = "none";
+      twolabel.style.display = "none";
+
       three.style.display = "none";
+      threelabel.style.display = "none";
+
       a.style.display = "none";
+      alabel.style.display = "none";
+
       b.style.display = "none";
+      blabel.style.display = "none";
+
       c.style.display = "none";
+      clabel.style.display = "none";
     }
   });
 
