@@ -47,20 +47,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("resize",resizeCanvas);
 
-  gen.style.display = "none";
-  kob.style.display = "none";
-  kan.style.display = "none";
-  genlabel.style.display = "none";
-  koblabel.style.display = "none";
-  kanlabel.style.display = "none";
-
-  one.style.display = "none";
-  two.style.display = "none";
-  three.style.display = "none";
-  a.style.display = "none";
-  b.style.display = "none";
-  c.style.display = "none";
-
   japanese.addEventListener("change",function(){
     if (japanese.checked) {
       gen.style.display = "block";
