@@ -7,15 +7,33 @@ window.addEventListener("DOMContentLoaded", function () {
   const ctx = canvas.getContext("2d");
 
   const japanese = document.getElementById("japanese");
+  
   const gen = document.getElementById("gen");
+  const genlabel = document.getElementById("genlabel");
+
   const kob = document.getElementById("kob");
+  const koblabel = document.getElementById("koblabel");
+
   const kan = document.getElementById("kan");
+  const kanlabel = document.getElementById("kanlabel");
+
   const mathmatics = document.getElementById("mathmatics");
+  
   const one = document.getElementById("one");
+  
+  
   const two = document.getElementById("two");
+  
+  
   const three = document.getElementById("three");
+  
+  
   const a = document.getElementById("a");
+  
+  
   const b = document.getElementById("b");
+  
+  
   const c = document.getElementById("c");
 
   const form = document.getElementById("pushed");
@@ -32,6 +50,9 @@ window.addEventListener("DOMContentLoaded", function () {
   gen.style.display = "none";
   kob.style.display = "none";
   kan.style.display = "none";
+  genlabel.style.display = "none";
+  koblabel.style.display = "none";
+  kanlabel.style.display = "none";
 
   one.style.display = "none";
   two.style.display = "none";
@@ -43,12 +64,22 @@ window.addEventListener("DOMContentLoaded", function () {
   japanese.addEventListener("change",function(){
     if (japanese.checked) {
       gen.style.display = "block";
+      genlabel.style.display = "inline";
+
       kob.style.display = "block";
+      koblabel.style.display = "inline";
+
       kan.style.display = "block";
+      kanlabel.style.display = "inline";
     } else {
       gen.style.display = "none";
+      genlabel.style.display = "none";
+
       kob.style.display = "none";
+      koblabel.style.display = "none";
+
       kan.style.display = "none";
+      kanlabel.style.display = "none";
     }
   });
 
