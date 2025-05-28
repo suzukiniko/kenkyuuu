@@ -65,7 +65,7 @@ form{
     position: relative;
     width: 20px;
     height: 20px;
-    border: 1px solid #bbbbbb;
+    border: 3px solid #bbbbbb;
     border-radius: 5px;
     cursor: pointer;
 }
