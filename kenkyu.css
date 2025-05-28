@@ -95,6 +95,7 @@ form{
 }
 
 .sub{
+    display: none;
     column-gap: 8px;
     line-height: 1;
     cursor: pointer;
