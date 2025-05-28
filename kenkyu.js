@@ -39,6 +39,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const form = document.getElementById("pushed");
 
+  let jotai = ""
+
   function resizeCanvas(){
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
