@@ -61,6 +61,7 @@ form{
 }
 
 .checkbox{
+    background-color: #fff;
     appearance: none;
     position: relative;
     width: 20px;
