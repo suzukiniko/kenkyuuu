@@ -4,7 +4,7 @@ html,body{
     margin: 5px;
     padding: 15px;
     height:200vh;
-    background-color: #abced8;
+    background-color: #ffffee;
     background-size: cover;
 }
 
@@ -61,7 +61,6 @@ form{
 }
 
 .checkbox{
-    background-color: #fff;
     appearance: none;
     position: relative;
     width: 20px;
