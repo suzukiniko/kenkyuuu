@@ -1,7 +1,3 @@
-//kenkyuuuuuuuuuuuuu
-
-
-
 window.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("excanvas");
   const ctx = canvas.getContext("2d");
