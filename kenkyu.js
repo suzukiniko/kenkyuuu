@@ -50,6 +50,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("resize",resizeCanvas);
 
+
+
   japanese.addEventListener("change",function(){
     if (japanese.checked) {
       gen.style.display = "block";
