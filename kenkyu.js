@@ -55,7 +55,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   japanese.addEventListener("change",function(){
     if (japanese.checked) {
-      jaSub.style.display = "flex";
+      jaSub.style.display = "inline-flex";
 
       gen.style.display = "block";
       genlabel.style.display = "inline";
@@ -82,7 +82,7 @@ window.addEventListener("DOMContentLoaded", function () {
   mathmatics.addEventListener("change",function(){
     if (mathmatics.checked) {
 
-      mathSub.style.display = "flex";
+      mathSub.style.display = "inline-flex";
 
       one.style.display = "block";
       onelabel.style.display = "inline";
