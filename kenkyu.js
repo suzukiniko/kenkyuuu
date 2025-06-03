@@ -36,11 +36,43 @@ window.addEventListener("DOMContentLoaded", function () {
   const blabel = document.getElementById("blabel");
   
   const c = document.getElementById("c");
-  const clabel = document.getElementById("clabel")
+  const clabel = document.getElementById("clabel");
+
+  const english = document.getElementById("english");
+
+  const physics = document.getElementById("physics");
+
+  const phSub = document.querySelector("#phGrade").parentElement;
+
+  const phKiso = document.getElementById("phKiso");
+  const phNormal = document.getElementById("phNormal");
+
+  const biology = document.getElementById("biology");
+
+  const bioSub = document.querySelector("#bioGrade").parentElement;
+
+  const bioKiso = document.getElementById("bioKiso");
+  const bioNormal = document.getElementById("bioNormal");
+
+  const chemistry = document.getElementById("chemistry");
+
+  const cheSub = document.querySelector("#cheGrade").parentElement;
+
+  const cheKiso = document.getElementById("cheKiso");
+  const cheNormal = document.getElementById("cheNormal");
+
+  const hitory = document.getElementById("history");
+
+  const hisSub = document.querySelector("#hisGrade").parentElement;
+
+  const japan = document.getElementById("japan");
+  const world = document.getElementById("world");
+
+  const geography = this.document.getElementById("geography");
 
   const form = document.getElementById("pushed");
 
-  let jotai = ""
+  let jotai = "";
 
   function resizeCanvas(){
     canvas.width = window.innerWidth;
@@ -124,6 +156,14 @@ window.addEventListener("DOMContentLoaded", function () {
       clabel.style.display = "none";
     }
   });
+
+  physics.addEventListener("chenge",function(){
+    if (physics.checked) {
+      phSub.style.display = "inline-flex";
+
+      phKiso.style.display = "inline";
+    }
+  })
 
   document.getElementById("start").addEventListener("click",function(event){
     event.preventDefault();
