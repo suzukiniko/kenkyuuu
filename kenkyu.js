@@ -57,13 +57,13 @@ window.addEventListener("DOMContentLoaded", function () {
     if (japanese.checked) {
       jaSub.style.display = "inline-flex";
 
-      gen.style.display = "block";
+      gen.style.display = "inline";
       genlabel.style.display = "inline";
 
-      kob.style.display = "block";
+      kob.style.display = "inline";
       koblabel.style.display = "inline";
 
-      kan.style.display = "block";
+      kan.style.display = "inline";
       kanlabel.style.display = "inline";
     } else {
       jaSub.style.display = "none";
@@ -84,22 +84,22 @@ window.addEventListener("DOMContentLoaded", function () {
 
       mathSub.style.display = "inline-flex";
 
-      one.style.display = "block";
+      one.style.display = "inline";
       onelabel.style.display = "inline";
 
-      two.style.display = "block";
+      two.style.display = "inine";
       twolabel.style.display = "inline";
 
-      three.style.display = "block";
+      three.style.display = "inline";
       threelabel.style.display = "inline";
 
-      a.style.display = "block";
+      a.style.display = "inline";
       alabel.style.display = "inline";
 
-      b.style.display = "block";
+      b.style.display = "inline";
       blabel.style.display = "inline";
 
-      c.style.display = "block";
+      c.style.display = "inline";
       clabel.style.display = "inline";
 
     } else {
