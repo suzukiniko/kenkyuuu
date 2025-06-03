@@ -87,7 +87,7 @@ window.addEventListener("DOMContentLoaded", function () {
       one.style.display = "inline";
       onelabel.style.display = "inline";
 
-      two.style.display = "inine";
+      two.style.display = "inline";
       twolabel.style.display = "inline";
 
       three.style.display = "inline";
