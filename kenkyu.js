@@ -1,8 +1,11 @@
 window.addEventListener("DOMContentLoaded", function () {
+
   const canvas = document.getElementById("excanvas");
   const ctx = canvas.getContext("2d");
 
   const japanese = document.getElementById("japanese");
+
+  const jaSub = document.querySelector("#jaGrade").parentElement;
   
   const gen = document.getElementById("gen");
   const genlabel = document.getElementById("genlabel");
@@ -14,6 +17,8 @@ window.addEventListener("DOMContentLoaded", function () {
   const kanlabel = document.getElementById("kanlabel");
 
   const mathmatics = document.getElementById("mathmatics");
+
+  const mathSub = document.querySelector("#mathGrade").parentElement;
   
   const one = document.getElementById("one");
   const onelabel = document.getElementById("onelabel");
@@ -50,6 +55,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
   japanese.addEventListener("change",function(){
     if (japanese.checked) {
+      jaSub.style.display = "flex";
+
       gen.style.display = "block";
       genlabel.style.display = "inline";
 
@@ -59,6 +66,8 @@ window.addEventListener("DOMContentLoaded", function () {
       kan.style.display = "block";
       kanlabel.style.display = "inline";
     } else {
+      jaSub.style.display = "none";
+
       gen.style.display = "none";
       genlabel.style.display = "none";
 
@@ -72,6 +81,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
   mathmatics.addEventListener("change",function(){
     if (mathmatics.checked) {
+
+      mathSub.style.display = "flex";
+
       one.style.display = "block";
       onelabel.style.display = "inline";
 
@@ -91,6 +103,8 @@ window.addEventListener("DOMContentLoaded", function () {
       clabel.style.display = "inline";
 
     } else {
+      mathSub.style.display = "none";
+
       one.style.display = "none";
       onelabel.style.display = "none";
 
