@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("excanvas");
   const ctx = canvas.getContext("2d");
 
+  //国語
   const japanese = document.getElementById("japanese");
 
   const jaSub = document.querySelector("#jaGrade").parentElement;
@@ -16,6 +17,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const kan = document.getElementById("kan");
   const kanlabel = document.getElementById("kanlabel");
 
+  //数学
   const mathmatics = document.getElementById("mathmatics");
 
   const mathSub = document.querySelector("#mathGrade").parentElement;
@@ -38,8 +40,10 @@ window.addEventListener("DOMContentLoaded", function () {
   const c = document.getElementById("c");
   const clabel = document.getElementById("clabel");
 
+  //英語
   const english = document.getElementById("english");
 
+  //物理
   const physics = document.getElementById("physics");
 
   const phSub = document.querySelector("#phGrade").parentElement;
@@ -50,6 +54,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const phNormal = document.getElementById("phNormal");
   const phNormallabel = document.getElementById("phNormallabel");
 
+  //生物
   const biology = document.getElementById("biology");
 
   const bioSub = document.querySelector("#bioGrade").parentElement;
@@ -60,6 +65,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const bioNormal = document.getElementById("bioNormal");
   const bioNormallabel = document.getElementById("bioNormallabel");
 
+  //化学
   const chemistry = document.getElementById("chemistry");
 
   const cheSub = document.querySelector("#cheGrade").parentElement;
@@ -69,7 +75,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const cheNormal = document.getElementById("cheNormal");
   const cheNormallabel = document.getElementById("cheNormallabel");
-
+  
+  //歴史
   const hitory = document.getElementById("history");
 
   const hisSub = document.querySelector("#hisGrade").parentElement;
@@ -80,6 +87,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const world = document.getElementById("world");
   const worldlabel = document.getElementById("worldlabel");
 
+  //地理
   const geography = this.document.getElementById("geography");
 
   const form = document.getElementById("pushed");
