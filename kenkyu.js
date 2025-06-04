@@ -45,28 +45,40 @@ window.addEventListener("DOMContentLoaded", function () {
   const phSub = document.querySelector("#phGrade").parentElement;
 
   const phKiso = document.getElementById("phKiso");
+  const phKisolabel = document.getElementById("phKisolabel");
+
   const phNormal = document.getElementById("phNormal");
+  const phNormallabel = document.getElementById("phNormallabel");
 
   const biology = document.getElementById("biology");
 
   const bioSub = document.querySelector("#bioGrade").parentElement;
 
   const bioKiso = document.getElementById("bioKiso");
+  const bioKisolabel = document.getElementById("bioKisolabel");
+
   const bioNormal = document.getElementById("bioNormal");
+  const bioNormallabel = document.getElementById("bioNormallabel");
 
   const chemistry = document.getElementById("chemistry");
 
   const cheSub = document.querySelector("#cheGrade").parentElement;
 
   const cheKiso = document.getElementById("cheKiso");
+  const cheKisolabel = document.getElementById("cheKisolabel");
+
   const cheNormal = document.getElementById("cheNormal");
+  const cheNormallabel = document.getElementById("cheNormallabel");
 
   const hitory = document.getElementById("history");
 
   const hisSub = document.querySelector("#hisGrade").parentElement;
 
   const japan = document.getElementById("japan");
+  const japanlabel = document.getElementById("japanlabel");
+
   const world = document.getElementById("world");
+  const worldlabel = document.getElementById("worldlabel");
 
   const geography = this.document.getElementById("geography");
 
@@ -157,13 +169,87 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  physics.addEventListener("chenge",function(){
+  physics.addEventListener("change",function(){
     if (physics.checked) {
       phSub.style.display = "inline-flex";
 
       phKiso.style.display = "inline";
+      phKisolabel.style.display = "inline";
+
+      phNormal.style.display = "inline";
+      phNormallabel.style.display = "inline";
+    } else {
+      phSub.style.display = "none";
+
+      phKiso.style.display = "none";
+      phKisolabel.style.display = "none";
+
+      phNormal.style.display = "none";
+      phNormallabel.style.display = "none";
     }
   })
+
+  biology.addEventListener("change",function(){
+    if(biology.checked) {
+      bioSub.style.display = "inline-flex";
+
+      bioKiso.style.display = "inline";
+      bioKisolabel.style.display = "inline";
+
+      bioNormal.style.display = "inline";
+      bioNormallabel.style.display = "inline";
+    } else {
+      bioSub.style.display = "none";
+
+      bioKiso.style.display = "none";
+      bioKisolabel.style.display = "none";
+
+      bioNormal.style.display = "none";
+      bioNormallabel.style.display = "none";
+    }
+  })
+
+  chemistry.addEventListener("change",function(){
+    if(chemistry.checked) {
+      cheSub.style.display = "inline-flex";
+
+      cheKiso.style.display = "inline";
+      cheKisolabel.style.display = "inline";
+
+      cheNormal.style.display = "inline";
+      cheNormallabel.style.display = "inline";
+    } else {
+      cheSub.style.display = "none";
+
+      cheKiso.style.display = "none";
+      cheKisolabel.style.display = "none";
+
+      cheNormal.style.display = "none";
+      cheNormallabel.style.display = "none";
+    }
+  })
+
+  history.addEventListener("change",function(){
+    if(history.checked) {
+      hisSub.style.display = "inline-flex";
+
+      japan.style.display = "inline";
+      japanlabel.style.display = "inline";
+
+      world.style.display = "inline";
+      worldlabel.style.display = "inline";
+    } else {
+      hisSub.style.display = "none";
+
+      japan.style.display = "none";
+      japanlabel.style.display = "none";
+
+      world.style.display = "none";
+      worldlabel.style.display = "none";
+    }
+  })
+
+
 
   document.getElementById("start").addEventListener("click",function(event){
     event.preventDefault();
