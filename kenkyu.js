@@ -77,7 +77,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const cheNormallabel = document.getElementById("cheNormallabel");
   
   //歴史
-  const hitory = document.getElementById("history");
+  const history = document.getElementById("history");
 
   const hisSub = document.querySelector("#hisGrade").parentElement;
 
