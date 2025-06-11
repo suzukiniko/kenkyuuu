@@ -43,7 +43,59 @@ window.addEventListener("DOMContentLoaded", function () {
   //英語
   const english = document.getElementById("english");
 
-  var selectEn = [""];
+  var selectEn = ["My dream is to write a novel in English.",
+    "It is dangerous to walk alone along this street at night.",
+    "It was necessary for me to stand up and speak out right away.",
+    "I found it difficult to get to the top of the mountain in time for the sunrise.",
+    "Could you show me how to operate this machine?",
+    "This apron has no pocket to put things in.",
+    "There are not enough chairs for them to sit on.",
+    "I studied five hours every day after school in order to get good grades this term.",
+    "You should leave home now in order (so as) not to miss your flight should there be a lot of traffic on the way to the airport.",
+    "The new materials were very tough for the researchers to create.",
+    "I was surprised to hear that she was badly injured in the accident.",
+    "He advised me not to eat the same foods all the time.",
+    "This popular novel still seems to be selling well at bookstores.",
+    "He seems to have been rich when he was in his forties.",
+    "I saw the sun rise over the lake through my hotel room window.",
+    "She made her daughter promise to call her once a week.",
+    "My parents were really angry with me, and I was made to promise never to come home so late again.",
+    "With this washing machine, all you have to do is press this button.",
+    "It takes about four days to drive from New York to San Francisco.",
+    "How much would it cost me to fly to Singapore?",
+    "You are tall enough to reach the box on the top shelf.",
+    "I was too busy to pay attention to what he was saying.",
+    "To make matters worse, he got pneumonia after breaking his leg.",
+    "Eating too much chocolate can destroy your health.",
+    "Jim's parents don't like the idea of his working part-time.",
+    "The father insists on his children not playing in the street.",
+    "He got out of the building without being noticed by anyone.",
+    "She is proud of her daughter having become a famous actress.",
+    "I'm looking forward to meeting my old classmates tomorrow at our elementary school reunion.",
+    "I am used to making presentations in English.",
+    "He was not listening to me, so it was no good telling him what happened today.",
+    "My job at the library is OK, but I spend most of my time putting books back on the shelves, so it's a little boring.",
+    "David was busy helping his mother in the yard.",
+    "While in New York, we had a lot of difficulty finding a parking place.",
+    "John is having a lot of trouble giving up cigarettes.",
+    "There is no telling how long the repairs will take.",
+    "Bill looked at the sleeping child.",
+    "The passengers traveling from Paris to Sydney must go to the transit area in Terminal A as soon as possible.",
+    "The exam given to students in the reading class was too hard.",
+    "A quarter of British adults walk for less than ten minutes a day, including time spent walking to their cars.",
+    "She felt encouraged by her parents' kind words.",
+    "I was shocked to find that someone had left the water running in the upstairs bathtub.",
+    "She kept me waiting for half an hour at the station.",
+    "Because of the noise, I could not make myself heard.",
+    "Can you make yourself well understood in English?",
+    "When I looked out of the window last night, I saw a cat sneaking into my neighbor's yard.",
+    "I heard my name called. Didn't you hear it?",
+    "Feeling tired, I decided not to go to the party.",
+    "Not knowing what to do, he came to me for help.",
+    "All things considered, we should not take such a risk.",
+    "He was sitting by the desk with his arms folded.",
+    "There is no bread left in the basket."
+  ];
 
   var selectJa = ["108 私の夢は英語で小説を書くことだ。 ",
     "109 夜にこの通りを一人で歩くのは危険だ。 ",
@@ -52,7 +104,7 @@ window.addEventListener("DOMContentLoaded", function () {
     "112 この機械の操作方法を教えていただけませんか。 ",
     "113 このエプロンには物を入れるポケットがない。",
     "114 彼らが座るのに十分な椅子がない。 ",
-    "117 私は今学期によい成績を取るために，学校が終わってから，毎日5 時間勉強した。 "
+    "117 私は今学期によい成績を取るために，学校が終わってから，毎日5 時間勉強した。 ",
     "118 空港への道で万一渋滞が起きても飛行機に遅れないように，あなたはもう家を出るべきだ。 ",
     "120 研究者たちが新しい素材を作り出すのは本当に難しかった。 ",
     "121 彼女が事故でひどいけがをしたと聞いて私は驚いた。 ",
@@ -63,7 +115,7 @@ window.addEventListener("DOMContentLoaded", function () {
     "129 彼女は自分の娘に1週間に1回電話をよこすよう約束させた。 ",
     "130 両親は私に激怒し，私は二度とこんなに遅く帰宅しないと約束させられた。 ",
     "131 この洗濯機は，このスイッチを押すだけでよい。",
-    "134 ニューヨークからサンフランシスコまで車で行くと4日くらいかかります。"
+    "134 ニューヨークからサンフランシスコまで車で行くと4日くらいかかります。",
     "135 シンガポールへ飛行機で行くにはいくらかかるでしょう。 ",
     "137 あなたはいちばん上の棚にある箱に手が届くくらい背が高い。 ",
     "139 私はあまりにも忙しくて，彼の言っていることに注意を払うことができなかった。",
@@ -81,7 +133,22 @@ window.addEventListener("DOMContentLoaded", function () {
     "163 ニューヨークに滞在中，私たちは駐車場を見つけるのに大変苦労した。",
     "164 ジョンはタバコをやめるのにとても苦労している。",
     "166 修理にどのくらい時間がかかるかは言えない。",
-    ""
+    "168 ビルは眠っている子どもを見た。",
+    "171 パリからシドニーへ行く乗客は，できるだけ速やかにAターミナルの乗り継ぎエリアに行かなければならない。",
+    "172 講読の授業で生徒たちに課された試験はあまりにも難しかった。",
+    "173 イギリスの成人の4 分の1 は，自分の車のところまで歩くのにかかる時間を含めても，一日に10 分未満しか歩かない。",
+    "174 彼女は両親の優しい言葉に励まされたと感じた。",
+    "175 誰かが上の階の風呂の水を出しっぱなしにしていたのがわかって，私はショックだった。",
+    "176 彼女は駅で私を30分待たせた。",
+    "178 騒音のせいで，私の話すことを聞き取ってもらえなかった。",
+    "179 あなたは英語で十分に用が足せますか。",
+    "180 昨夜，私が窓の外を見たとき，一匹のネコが隣の庭にこっそり入っていくのを見た。",
+    "181 私の名前が呼ばれるのが聞こえた。聞こえませんでしたか。",
+    "183 疲れていると感じたので，私はパーティーに行かないことに決めた。",
+    "185 何をすればよいかわからなかったので，彼は私に助けを求めにきた。",
+    "193 すべてのことを考慮すれば，私たちはそのような危険を冒すべきではない。",
+    "195 彼は机の側で腕を組んで座っていた。",
+    "196 かごの中にパンが残っていない。"
   ];
 
   //物理
@@ -303,5 +370,24 @@ window.addEventListener("DOMContentLoaded", function () {
   document.getElementById("start").addEventListener("click",function(event){
     event.preventDefault();
     jotai = "starting";
+    let text = document.getElementById("subtitle").textContent;
+    document.getElementById("subtitle").textContent = selectEn[0];
+     checkbox.style.display = "none";
+     selectEnglish();
   });
+
+  document.getElementById("answer").addEventListener("click",function(event){
+    event.preventDefault();
+
+
+    if (selectEn[number] == ){
+
+    }
+  });
+
+  function selectEnglish(){
+    const number = Math.floor(Math.random() * 100) + 1;
+    
+  }
+
 });
