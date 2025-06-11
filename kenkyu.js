@@ -199,6 +199,9 @@ window.addEventListener("DOMContentLoaded", function () {
   const geography = this.document.getElementById("geography");
 
   const form = document.getElementById("pushed");
+  const textarea = document.getElementById("text");
+
+  let number = 0;
 
   let jotai = "";
 
@@ -371,23 +374,27 @@ window.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     jotai = "starting";
     let text = document.getElementById("subtitle").textContent;
-    document.getElementById("subtitle").textContent = selectEn[0];
-     checkbox.style.display = "none";
-     selectEnglish();
+    document.getElementById("subtitle").textContent = selectJa[number];
+    checkbox.style.display = "none";
+    selectEnglish();
   });
 
   document.getElementById("answer").addEventListener("click",function(event){
     event.preventDefault();
-
-
-    if (selectEn[number] == ){
-
+    const ans = document.getElementById("text").value;
+    if (selectEn[number] == ans){
+      document.getElementById("subtitle").textContent = "success";
+      selectEnglish();
     }
   });
 
+  document.getElementById("skip").addEventListener("click",function(event){
+    event.preventDefault();
+    document.getElementById("subsub").textContent = selectEn[number];
+  })
+
   function selectEnglish(){
     const number = Math.floor(Math.random() * 100) + 1;
-    
   }
 
 });
