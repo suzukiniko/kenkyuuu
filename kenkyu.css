@@ -51,7 +51,7 @@ form{
     transition: .3s;
     box-shadow: 3px 3px 3px #777777;    /* 影 */
     z-index: 1;
-    margin: 0 10px;                       /* ボタン間のスペース */
+    margin: 10px 10px;                       /* ボタン間のスペース */
 }
 .button:hover {
     box-shadow: none;
@@ -60,6 +60,10 @@ form{
 
 .start{
     position: relative;
+}
+
+.ansbutton{
+    position : inline;
 }
 
 
