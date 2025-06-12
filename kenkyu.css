@@ -50,7 +50,6 @@ form{
     opacity: 1;                           /*背景透明度*/
     transition: .3s;
     box-shadow: 3px 3px 3px #777777;    /* 影 */
-    position: relative;
     z-index: 1;
     margin: 0 10px;                       /* ボタン間のスペース */
 }
@@ -58,6 +57,12 @@ form{
     box-shadow: none;
     opacity: 0.8;
 }
+
+.start{
+    position: relative;
+}
+
+
 
 .checkbox{
     appearance: none;
