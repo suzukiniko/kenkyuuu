@@ -379,7 +379,7 @@ window.addEventListener("DOMContentLoaded", function () {
     selectEnglish();
   });
 
-  document.getElementById("answer").addEventListener("click",function(event){
+  document.getElementById("answered").addEventListener("click",function(event){
     event.preventDefault();
     const ans = document.getElementById("text").value;
     if (selectEn[number] == ans){
