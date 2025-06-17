@@ -201,8 +201,6 @@ window.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("pushed");
   const textarea = document.getElementById("text");
 
-  let number = 0;
-
   let jotai = "";
 
   function resizeCanvas(){
@@ -372,19 +370,20 @@ window.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("start").addEventListener("click",function(event){
     event.preventDefault();
-    jotai = "starting";
-    let text = document.getElementById("subtitle").textContent;
-    document.getElementById("subtitle").textContent = selectJa[number];
-    checkbox.style.display = "none";
+    jotai = "starting"; //飾り
     selectEnglish();
+    document.getElementById("subtitle").textContent = selectJa[number];
+    let text = document.getElementById("subtitle").textContent;
   });
 
   document.getElementById("answered").addEventListener("click",function(event){
     event.preventDefault();
     const ans = document.getElementById("text").value;
     if (selectEn[number] == ans){
-      document.getElementById("subtitle").textContent = "success";
+      document.getElementById("subtitle").textContent = "success!";
       selectEnglish();
+    }else{
+      document.getElementById("subtitle").textContent = "failed";
     }
   });
 
@@ -394,7 +393,7 @@ window.addEventListener("DOMContentLoaded", function () {
   })
 
   function selectEnglish(){
-    const number = Math.floor(Math.random() * 100) + 1;
+    const number = Math.floor(Math.random() * 52) + 1;
   }
 
 });
