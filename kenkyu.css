@@ -66,7 +66,10 @@ form{
     position : inline;
 }
 
-
+.text{
+    position: relative;
+    cursor: text;
+}
 
 .checkbox{
     appearance: none;

@@ -203,6 +203,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   let jotai = "";
   var number = Math.floor(Math.random() * 52);
+  var subsubtext = document.getElementById("subsub").textContent;
 
   function resizeCanvas(){
     canvas.width = window.innerWidth;
@@ -390,7 +391,12 @@ window.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("skip").addEventListener("click",function(event){
     event.preventDefault();
-    document.getElementById("subsub").textContent = selectEn[number];
+    subsubtext = document.getElementById("subsub").textContent;
+    if (subsubtext == ""){
+      document.getElementById("subsub").textContent = selectEn[number];
+    } else {
+      document.getElementById("subsub").textContent = "";
+    }
   })
 
   function selectEnglish(){
