@@ -373,6 +373,8 @@ window.addEventListener("DOMContentLoaded", function () {
   document.getElementById("start").addEventListener("click",function(event){
     event.preventDefault();
     jotai = "starting"; //飾り
+    document.getElementById("subsub").textContent = "";
+    document.getElementById("result").textContent = "";
     selectEnglish();
     document.getElementById("subtitle").textContent = selectJa[number];
     let text = document.getElementById("subtitle").textContent;
@@ -382,10 +384,10 @@ window.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     const ans = document.getElementById("text").value;
     if (selectEn[number] == ans){
-      document.getElementById("subtitle").textContent = "success!";
+      document.getElementById("result").textContent = "success!";
       selectEnglish();
     }else{
-      document.getElementById("subtitle").textContent = "failed";
+      document.getElementById("result").textContent = "failed";
     }
   });
 
