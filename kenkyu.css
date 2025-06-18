@@ -61,6 +61,7 @@ form{
 .text{
     position: relative;
     display: block;
+    margin-top: 8px;
     cursor: text;
 }
 
