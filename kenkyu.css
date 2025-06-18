@@ -38,7 +38,7 @@ form{
 }
 
 .button{
-    display : inline-block;
+    display : inline-flex;
     border-radius: 10%;                   /* 角の丸さ */
     font-size: 30px;                      /* 文字サイズ */
     text-align: center;                   /* 文字の位置 */
@@ -56,14 +56,6 @@ form{
 .button:hover {
     box-shadow: none;
     opacity: 0.8;
-}
-
-.start{
-    position: relative;
-}
-
-.ansbutton{
-    display: inline;
 }
 
 .text{
