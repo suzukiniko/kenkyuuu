@@ -202,7 +202,8 @@ window.addEventListener("DOMContentLoaded", function () {
   const textarea = document.getElementById("text");
 
   let jotai = "";
-
+  const number = Math.floor(Math.random() * 52);
+  
   function resizeCanvas(){
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -393,7 +394,7 @@ window.addEventListener("DOMContentLoaded", function () {
   })
 
   function selectEnglish(){
-    const number = Math.floor(Math.random() * 52) + 1;
+    const number = Math.floor(Math.random() * 52);
   }
 
 });
