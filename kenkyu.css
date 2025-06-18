@@ -62,6 +62,7 @@ form{
     position: relative;
     display: block;
     margin-top: 8px;
+    font-size: 32px;
     cursor: text;
 }
 
