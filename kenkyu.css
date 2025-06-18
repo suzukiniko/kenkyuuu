@@ -63,11 +63,12 @@ form{
 }
 
 .ansbutton{
-    position : inline;
+    display: inline;
 }
 
 .text{
     position: relative;
+    display: flex;
     cursor: text;
 }
 
