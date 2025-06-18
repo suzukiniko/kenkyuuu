@@ -38,7 +38,7 @@ form{
 }
 
 .button{
-    display : inline-flex;
+    display : inline-block;
     border-radius: 10%;                   /* 角の丸さ */
     font-size: 30px;                      /* 文字サイズ */
     text-align: center;                   /* 文字の位置 */
@@ -60,7 +60,7 @@ form{
 
 .text{
     position: relative;
-    display: flex;
+    display: block;
     cursor: text;
 }
 
