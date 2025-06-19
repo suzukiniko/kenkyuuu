@@ -325,6 +325,8 @@ window.addEventListener("DOMContentLoaded", function () {
   var phrnumber = Math.floor(Math.random() * 57);
   var subsubtext = document.getElementById("subsub").textContent;
 
+  let text = "";
+
   function resizeCanvas(){
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -496,6 +498,7 @@ window.addEventListener("DOMContentLoaded", function () {
     document.getElementById("text").value = "";
     document.getElementById("subsub").textContent = "";
     document.getElementById("result").textContent = "";
+    
     if(japanese.checked){
       selectEnglish();
       document.getElementById("subtitle").textContent = selectJa[selnumber];
@@ -503,7 +506,8 @@ window.addEventListener("DOMContentLoaded", function () {
       phraseEnglish();
       document.getElementById("subtitle").textContent = phraseJa[phrnumber];
     }
-    let text = document.getElementById("subtitle").textContent;
+
+    text = document.getElementById("subtitle").textContent;
   });
 
   document.getElementById("answered").addEventListener("click",function(event){
