@@ -43,6 +43,125 @@ window.addEventListener("DOMContentLoaded", function () {
   //英語
   const english = document.getElementById("english");
 
+  var phraseEn = [
+  "what I'm going to show", //L1s3
+  "words we can't translate easily",
+  "the restless beat of a traveler's heart",
+  "before the journey begins",
+  "feelings of being nervous and excited",
+  "Here is an example",
+  "a positive warm feeling you have",
+  "It's amazing that one word can describe",
+  "before taking a break",
+  "the amount of water that can be held",
+  "You may find it fascinating",
+  "in different ways",
+  "It seems there is no limit",
+  "to what you can say",
+  "Before concluding my talk", //L1s4
+  "let me share with you",
+  "Japanese words which find really interesting",
+  "see the sunlight filtering",
+  "I find this fascinating",
+  "leave books unread",
+  "without reading them",
+  "you may not find these words nique",
+  "allow us to see the world",
+  "in different ways",
+  "to make sure you have understood",
+  "the English text you are reading",
+  "that there might be something lost",
+  "a thirteen-year-old girl", //L2s1
+  "which she sells in town",
+  "she used to go to school",
+  "her family could no longer pay",
+  "the daily 30-yen fee",
+  "I've forgotten many things",
+  "I wonder",
+  "if I can get a decent job",
+  "left school to go to work",
+  "collects plastic bottles and metal fragments",
+  "in a dump",
+  "my friends who attend school",
+  "I wish I could study",
+  "more than 70 million children around the world",
+  "to give every child an opportunity to learn",
+  "but also in Afghanistan", // L2s2
+  "to build schools and libraries",
+  "and also to send books to children",
+  "One of those children",
+  "used to live with his father",
+  "Nool helped him take the cows out",
+  "their village was bombed",
+  "just managed to escape with their lives",
+  "to keep themselves warm",
+  "Nool was still afraid of bombing",
+  "daily life",
+  "had an opportunity to visit",
+  "has a purpose in life",
+  "enjoy going to the library",
+  "dreams of being able to read books"
+  ]
+
+  var phraseJa = ["1s3 私が紹介しようとするもの (5)",
+  "1s3 容易に翻訳できないことば (5)",
+  "1s3 旅人の胸が絶え間なくドキドキすること (7)",
+  "1s3 旅が始まる前に (4)",
+  "1s3 不安と興奮の感情 (6)",
+  "1s3 こちらは例である (4)",
+  "1s3 あなたが感じる好意的であたたかい感情 (6)",
+  "1s3 たった1語で言い表せるなんて驚きだ (7)",
+  "1s3 休憩する前に (4)",
+  "1s3 溜められるだけの水の量 (8)",
+  "1s3 あなたは魅力的だと思うかもしれない (5)",
+  "1s3 それぞれの方法で (3)",
+  "1s3 限度がないようである (6)",
+  "1s3 何を伝えられるかということに (5)",
+  "1s4 話をまとめる前に (4)",
+  "1s4 あなたと共有させてほしい (5)",
+  "1s4 私がとても興味深いと思っている日本語 (7)",
+  "1s4 太陽の光が通り抜けているのを見る (4)",
+  "1s4 このことばは魅力的だと思う (4)",
+  "1s4 本を読まないままにしておく (3)",
+  "1s4 読まずに (3)",
+  "1s4 こうした語を独特だと思わないかもしれない (6)",
+  "1s4 私たちが世界を眺めることを可能にしてくれる (6)",
+  "1s4 異なる方法で (3)",
+  "1s4 あなたが理解したかを確認するために (6)",
+  "1s4 読んでいる英語の文章 (6)",
+  "1s4 失われてしまうことがあるかもしれないということ (6)",
+  "2s1 13歳の女の子 (3)",
+  "2s1 そして彼女はそれを町で売る (5)",
+  "2s1彼女はかつては学校に行っていた (6)",
+  "2s1 彼女の家族はもはや払えなかった (6)",
+  "2s1 毎日の30円の費用を (4)",
+  "2s1 多くのことを忘れてしまった (4)",
+  "2s1 私は疑問に思う (2)",
+  "2s1 満足できる仕事を得られるかどうか (7)",
+  "2s1 働きに出るため学校を去った (6)",
+  "2s1 ペットボトルや金属片を集める (5)",
+  "2s1 ゴミ集積所で (3)",
+  "2s1 学校に行っている友だち (5)",
+  "2s1 勉強ができればいいのに (5)",
+  "2s1 世界で 7,000 万人以上の子どもたちが (8)",
+  "2s1 すべての子どもに学びの機会を与えるために (8)",
+  "2s2 アフガニスタンでも (4)",
+  "2s2 学校や図書館を建設するために (5)",
+  "2s2 そして子どもたちに本を送ったりもするために (7)",
+  "2s2 それらの子どもの1人 (4)",
+  "2s2 かつては父と暮らしていた (6)",
+  "2s2 ヌールは父が牛を連れ出すのを手伝った (7)",
+  "2s2 彼らの村が爆撃された (4)",
+  "2s2 かろうじて一命を取り留めた (7)",
+  "2s2 彼ら自身を暖めるための (4)",
+  "2s2 ヌールは依然として爆撃を恐れていた (6)",
+  "2s2 日常生活 (2)",
+  "2s2 訪れる機会を持った(5)",
+  "2s2 人生の目的を持っている(5)",
+  "2s2 図書館に行くのを楽しんでいる(5)",
+  "2s2 本を読めるようになることを夢見ている(7)"
+]
+
   var selectEn = ["My dream is to write a novel in English.",
     "It is dangerous to walk alone along this street at night.",
     "It was necessary for me to stand up and speak out right away.",
@@ -202,7 +321,8 @@ window.addEventListener("DOMContentLoaded", function () {
   const textarea = document.getElementById("text");
 
   let jotai = "";
-  var number = Math.floor(Math.random() * 52);
+  var selnumber = Math.floor(Math.random() * 52);
+  var phrnumber = Math.floor(Math.random() * 57);
   var subsubtext = document.getElementById("subsub").textContent;
 
   function resizeCanvas(){
@@ -376,19 +496,33 @@ window.addEventListener("DOMContentLoaded", function () {
     document.getElementById("text").value = "";
     document.getElementById("subsub").textContent = "";
     document.getElementById("result").textContent = "";
-    selectEnglish();
-    document.getElementById("subtitle").textContent = selectJa[number];
+    if(japanese.checked){
+      selectEnglish();
+      document.getElementById("subtitle").textContent = selectJa[selnumber];
+    }else if(english.checked){
+      phraseEnglish();
+      document.getElementById("subtitle").textContent = phraseJa[phrnumber];
+    }
     let text = document.getElementById("subtitle").textContent;
   });
 
   document.getElementById("answered").addEventListener("click",function(event){
     event.preventDefault();
     const ans = document.getElementById("text").value;
-    if (selectEn[number] == ans){
-      document.getElementById("result").textContent = "success!";
-      selectEnglish();
-    }else{
-      document.getElementById("result").textContent = "failed";
+    if(japanese.checked){
+      if (selectEn[selnumber] == ans){
+        document.getElementById("result").textContent = "success!";
+        selectEnglish();
+      }else{
+        document.getElementById("result").textContent = "failed";
+      }
+    }else if(english.checked){
+      if (phraseEn[phrnumber] == ans){
+        document.getElementById("result").textContent = "succes!";
+        selectEnglish();
+      }else{
+        document.getElementById("result").textContent = "failed";
+      }
     }
   });
 
@@ -396,14 +530,22 @@ window.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     subsubtext = document.getElementById("subsub").textContent;
     if (subsubtext == ""){
-      document.getElementById("subsub").textContent = selectEn[number];
+      if(japanese.checked){
+        document.getElementById("subsub").textContent = selectEn[selnumber];
+      }else if(english.checked){
+        document.getElementById("subsub").textContent = phraseEn[phrnumber];
+      }
     } else {
       document.getElementById("subsub").textContent = "";
     }
   })
 
   function selectEnglish(){
-    number = Math.floor(Math.random() * 52);
+    selnumber = Math.floor(Math.random() * 52);
+  }
+
+  function phraseEnglish(){
+    phrnumber = Math.floor(Math.random() * 57);
   }
 
 });
