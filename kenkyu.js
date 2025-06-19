@@ -498,7 +498,7 @@ window.addEventListener("DOMContentLoaded", function () {
     document.getElementById("text").value = "";
     document.getElementById("subsub").textContent = "";
     document.getElementById("result").textContent = "";
-    
+
     if(japanese.checked){
       selectEnglish();
       document.getElementById("subtitle").textContent = selectJa[selnumber];
@@ -523,7 +523,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }else if(english.checked){
       if (phraseEn[phrnumber] == ans){
         document.getElementById("result").textContent = "succes!";
-        selectEnglish();
+        phraseEnglish();
       }else{
         document.getElementById("result").textContent = "failed";
       }
