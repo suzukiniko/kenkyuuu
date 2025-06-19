@@ -373,6 +373,7 @@ window.addEventListener("DOMContentLoaded", function () {
   document.getElementById("start").addEventListener("click",function(event){
     event.preventDefault();
     jotai = "starting"; //飾り
+    document.getElementById("text").value = "";
     document.getElementById("subsub").textContent = "";
     document.getElementById("result").textContent = "";
     selectEnglish();
