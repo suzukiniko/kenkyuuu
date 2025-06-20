@@ -65,7 +65,7 @@ window.addEventListener("DOMContentLoaded", function () {
   "I find this fascinating",
   "leave books unread",
   "without reading them",
-  "you may not find these words nique",
+  "you may not find these words unique",
   "allow us to see the world",
   "in different ways",
   "to make sure you have understood",
