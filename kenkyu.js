@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const japanese = document.getElementById("japanese");
 
   const jaSub = document.querySelector("#jaGrade").parentElement;
-  
+
   const gen = document.getElementById("gen");
   const genlabel = document.getElementById("genlabel");
 
@@ -21,22 +21,22 @@ window.addEventListener("DOMContentLoaded", function () {
   const mathmatics = document.getElementById("mathmatics");
 
   const mathSub = document.querySelector("#mathGrade").parentElement;
-  
+
   const one = document.getElementById("one");
   const onelabel = document.getElementById("onelabel");
-  
+
   const two = document.getElementById("two");
   const twolabel = document.getElementById("twolabel");
-  
+
   const three = document.getElementById("three");
   const threelabel = document.getElementById("threelabel");
-  
+
   const a = document.getElementById("a");
   const alabel = document.getElementById("alabel");
-  
+
   const b = document.getElementById("b");
   const blabel = document.getElementById("blabel");
-  
+
   const c = document.getElementById("c");
   const clabel = document.getElementById("clabel");
 
@@ -75,7 +75,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const cheNormal = document.getElementById("cheNormal");
   const cheNormallabel = document.getElementById("cheNormallabel");
-  
+
   //歴史
   const history = document.getElementById("history");
 
@@ -100,18 +100,18 @@ window.addEventListener("DOMContentLoaded", function () {
 
   let text = "";
 
-  function resizeCanvas(){
+  function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
 
   resizeCanvas();
 
-  window.addEventListener("resize",resizeCanvas);
+  window.addEventListener("resize", resizeCanvas);
 
 
 
-  japanese.addEventListener("change",function(){
+  japanese.addEventListener("change", function () {
     if (japanese.checked) {
       jaSub.style.display = "inline-flex";
 
@@ -137,7 +137,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  mathmatics.addEventListener("change",function(){
+  mathmatics.addEventListener("change", function () {
     if (mathmatics.checked) {
 
       mathSub.style.display = "inline-flex";
@@ -183,7 +183,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  physics.addEventListener("change",function(){
+  physics.addEventListener("change", function () {
     if (physics.checked) {
       phSub.style.display = "inline-flex";
 
@@ -203,8 +203,8 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   })
 
-  biology.addEventListener("change",function(){
-    if(biology.checked) {
+  biology.addEventListener("change", function () {
+    if (biology.checked) {
       bioSub.style.display = "inline-flex";
 
       bioKiso.style.display = "inline";
@@ -223,8 +223,8 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   })
 
-  chemistry.addEventListener("change",function(){
-    if(chemistry.checked) {
+  chemistry.addEventListener("change", function () {
+    if (chemistry.checked) {
       cheSub.style.display = "inline-flex";
 
       cheKiso.style.display = "inline";
@@ -243,8 +243,8 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   })
 
-  history.addEventListener("change",function(){
-    if(history.checked) {
+  history.addEventListener("change", function () {
+    if (history.checked) {
       hisSub.style.display = "inline-flex";
 
       japan.style.display = "inline";
@@ -263,74 +263,75 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   })
 
-//今度コメントアウト消す
+  //今度コメントアウト消す
 
-//  document.getElementById("start").addEventListener("click",function(event){
-//    event.preventDefault();
-//    jotai = "starting"; //飾り
-//    document.getElementById("text").value = "";
-//    document.getElementById("subsub").textContent = "";
-//    document.getElementById("result").textContent = "";
+  //  document.getElementById("start").addEventListener("click",function(event){
+  //    event.preventDefault();
+  //    jotai = "starting"; //飾り
+  //    document.getElementById("text").value = "";
+  //    document.getElementById("subsub").textContent = "";
+  //    document.getElementById("result").textContent = "";
 
-//    if(japanese.checked){
-//      selectEnglish();
-//      document.getElementById("subtitle").textContent = selectJa[selnumber];
-//    }else if(english.checked){
-//      phraseEnglish();
-//      document.getElementById("subtitle").textContent = phraseJa[phrnumber];
-//    }
+  //    if(japanese.checked){
+  //      selectEnglish();
+  //      document.getElementById("subtitle").textContent = selectJa[selnumber];
+  //    }else if(english.checked){
+  //      phraseEnglish();
+  //      document.getElementById("subtitle").textContent = phraseJa[phrnumber];
+  //    }
 
-//    text = document.getElementById("subtitle").textContent;
-//  });
+  //    text = document.getElementById("subtitle").textContent;
+  //  });
 
-//  document.getElementById("answered").addEventListener("click",function(event){
-//    event.preventDefault();
-//    const ans = document.getElementById("text").value;
-//    if(japanese.checked){
-//      if (selectEn[selnumber] == ans){
-//        document.getElementById("result").textContent = "success!";
-//        selectEnglish();
-//      }else{
-//        document.getElementById("result").textContent = "failed";
-//      }
-//    }else if(english.checked){
-//      if (phraseEn[phrnumber] == ans){
-//        document.getElementById("result").textContent = "succes!";
-//        phraseEnglish();
-//      }else{
-//        document.getElementById("result").textContent = "failed";
-//      }
-//    }
-//  });
+  //  document.getElementById("answered").addEventListener("click",function(event){
+  //    event.preventDefault();
+  //    const ans = document.getElementById("text").value;
+  //    if(japanese.checked){
+  //      if (selectEn[selnumber] == ans){
+  //        document.getElementById("result").textContent = "success!";
+  //        selectEnglish();
+  //      }else{
+  //        document.getElementById("result").textContent = "failed";
+  //      }
+  //    }else if(english.checked){
+  //      if (phraseEn[phrnumber] == ans){
+  //        document.getElementById("result").textContent = "succes!";
+  //        phraseEnglish();
+  //      }else{
+  //        document.getElementById("result").textContent = "failed";
+  //      }
+  //    }
+  //  });
 
-//  document.getElementById("skip").addEventListener("click",function(event){
-//    event.preventDefault();
-//    subsubtext = document.getElementById("subsub").textContent;
-//    if (subsubtext == ""){
-//      if(japanese.checked){
-//        document.getElementById("subsub").textContent = selectEn[selnumber];
-//      }else if(english.checked){
-//        document.getElementById("subsub").textContent = phraseEn[phrnumber];
-//      }
-//    } else {
-//      document.getElementById("subsub").textContent = "";
-//    }
-//  })
-
-  //文化祭用追加
-  function playMusic(id){
-    const audio = document.getElementById(id);
-    audio.play();
-  }
-
-  function pauseMusic(id){
-    const audio = document.getElementById(id);
-    audio.pause();
-  }
-
-  function stopMusic(id){
-    const audio = document.getElementById(id);
-    audio.pause();
-    audio.currentTime = 0;
-  }
+  //  document.getElementById("skip").addEventListener("click",function(event){
+  //    event.preventDefault();
+  //    subsubtext = document.getElementById("subsub").textContent;
+  //    if (subsubtext == ""){
+  //      if(japanese.checked){
+  //        document.getElementById("subsub").textContent = selectEn[selnumber];
+  //      }else if(english.checked){
+  //        document.getElementById("subsub").textContent = phraseEn[phrnumber];
+  //      }
+  //    } else {
+  //      document.getElementById("subsub").textContent = "";
+  //    }
+  //  })
 });
+
+//文化祭用追加
+function playMusic(id) {
+  const audio = document.getElementById(id);
+  audio.play();
+  console.log("playmusic")
+}
+
+function pauseMusic(id) {
+  const audio = document.getElementById(id);
+  audio.pause();
+}
+
+function stopMusic(id) {
+  const audio = document.getElementById(id);
+  audio.pause();
+  audio.currentTime = 0;
+}
