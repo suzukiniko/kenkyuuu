@@ -330,7 +330,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function stopMusic(id){
     const audio = document.getElementById(id);
-    audio.stop();
+    audio.pause();
     audio.currentTime = 0;
   }
 });
