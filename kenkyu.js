@@ -316,4 +316,21 @@ window.addEventListener("DOMContentLoaded", function () {
       document.getElementById("subsub").textContent = "";
     }
   })
+
+  //文化祭用追加
+  function playMusic(id){
+    const audio = document.getElementById(id);
+    audio.play();
+  }
+
+  function pauseMusic(id){
+    const audio = document.getElementById(id);
+    audio.pause();
+  }
+
+  function stopMusic(id){
+    const audio = document.getElementById(id);
+    audio.stop();
+    audio.currentTime = 0;
+  }
 });
