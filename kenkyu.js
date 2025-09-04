@@ -263,59 +263,59 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   })
 
+//今度コメントアウト消す
 
+//  document.getElementById("start").addEventListener("click",function(event){
+//    event.preventDefault();
+//    jotai = "starting"; //飾り
+//    document.getElementById("text").value = "";
+//    document.getElementById("subsub").textContent = "";
+//    document.getElementById("result").textContent = "";
 
-  document.getElementById("start").addEventListener("click",function(event){
-    event.preventDefault();
-    jotai = "starting"; //飾り
-    document.getElementById("text").value = "";
-    document.getElementById("subsub").textContent = "";
-    document.getElementById("result").textContent = "";
+//    if(japanese.checked){
+//      selectEnglish();
+//      document.getElementById("subtitle").textContent = selectJa[selnumber];
+//    }else if(english.checked){
+//      phraseEnglish();
+//      document.getElementById("subtitle").textContent = phraseJa[phrnumber];
+//    }
 
-    if(japanese.checked){
-      selectEnglish();
-      document.getElementById("subtitle").textContent = selectJa[selnumber];
-    }else if(english.checked){
-      phraseEnglish();
-      document.getElementById("subtitle").textContent = phraseJa[phrnumber];
-    }
+//    text = document.getElementById("subtitle").textContent;
+//  });
 
-    text = document.getElementById("subtitle").textContent;
-  });
+//  document.getElementById("answered").addEventListener("click",function(event){
+//    event.preventDefault();
+//    const ans = document.getElementById("text").value;
+//    if(japanese.checked){
+//      if (selectEn[selnumber] == ans){
+//        document.getElementById("result").textContent = "success!";
+//        selectEnglish();
+//      }else{
+//        document.getElementById("result").textContent = "failed";
+//      }
+//    }else if(english.checked){
+//      if (phraseEn[phrnumber] == ans){
+//        document.getElementById("result").textContent = "succes!";
+//        phraseEnglish();
+//      }else{
+//        document.getElementById("result").textContent = "failed";
+//      }
+//    }
+//  });
 
-  document.getElementById("answered").addEventListener("click",function(event){
-    event.preventDefault();
-    const ans = document.getElementById("text").value;
-    if(japanese.checked){
-      if (selectEn[selnumber] == ans){
-        document.getElementById("result").textContent = "success!";
-        selectEnglish();
-      }else{
-        document.getElementById("result").textContent = "failed";
-      }
-    }else if(english.checked){
-      if (phraseEn[phrnumber] == ans){
-        document.getElementById("result").textContent = "succes!";
-        phraseEnglish();
-      }else{
-        document.getElementById("result").textContent = "failed";
-      }
-    }
-  });
-
-  document.getElementById("skip").addEventListener("click",function(event){
-    event.preventDefault();
-    subsubtext = document.getElementById("subsub").textContent;
-    if (subsubtext == ""){
-      if(japanese.checked){
-        document.getElementById("subsub").textContent = selectEn[selnumber];
-      }else if(english.checked){
-        document.getElementById("subsub").textContent = phraseEn[phrnumber];
-      }
-    } else {
-      document.getElementById("subsub").textContent = "";
-    }
-  })
+//  document.getElementById("skip").addEventListener("click",function(event){
+//    event.preventDefault();
+//    subsubtext = document.getElementById("subsub").textContent;
+//    if (subsubtext == ""){
+//      if(japanese.checked){
+//        document.getElementById("subsub").textContent = selectEn[selnumber];
+//      }else if(english.checked){
+//        document.getElementById("subsub").textContent = phraseEn[phrnumber];
+//      }
+//    } else {
+//      document.getElementById("subsub").textContent = "";
+//    }
+//  })
 
   //文化祭用追加
   function playMusic(id){
