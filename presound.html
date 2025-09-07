@@ -104,7 +104,7 @@
             const buttonGroup = document.createElement('div');
             buttonGroup.className = 'button-group';
 
-            const audio = new Audio("./music_file/" + file);
+            const audio = new Audio("./pre-music_file/" + file);
             audios[index] = audio;
 
             const button = document.createElement('button');
@@ -130,7 +130,6 @@
 
             const keyLabel = document.createElement('span');
             keyLabel.className = 'key-label';
-            keyLabel.textContent = `キー: ${Object.keys(keyMap).find(k => keyMap[k] === index) || "-"}`;
 
             buttonGroup.appendChild(button);
             buttonGroup.appendChild(stopButton);
