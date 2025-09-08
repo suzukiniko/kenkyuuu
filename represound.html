@@ -1,0 +1,68 @@
+<script>
+    const soundBoard = document.getElementById('soundBoard'); 
+
+    const audioFiles = [
+        "通知[q].mp3", "ノック[w].mp3", "電話かける[e].mp3", "電話切れる[r].mp3",
+        "ガラス[t].mp3", "銃声[y].mp3", "銃声(大)[u].mp3", "銃声3発[i].mp3",
+        "パトカー[o].mp3", "チャイム[p].mp3","パンチ[a].mp3","思いパンチ[s]"
+    ];
+
+    // キーボード割り当て
+    const keyMap = {
+        "q": 0,
+        "w": 1,
+        "e": 2,
+        "r": 3,
+        "t": 4,
+        "y": 5,
+        "u": 6,
+        "i": 7,
+        "o": 8,
+        "p": 9,
+        "a":10,
+        "s":11
+    };
+
+    audioFiles.forEach((file, index) => {
+        const buttonGroup = document.createElement('div');
+        buttonGroup.className = 'button-group';
+
+        const button = document.createElement('button');
+        button.textContent = file.replace('.mp3', '');
+
+        // ボタンクリック再生（毎回新しいAudioを作成）
+        button.onclick = () => {
+            const audio = new Audio("./pre-music_file/" + file);
+            audio.play();
+            button.style.backgroundColor = '#e0e0e0';
+            setTimeout(() => {
+                button.style.backgroundColor = '#ffffff';
+            }, 200);
+        };
+
+        const stopButton = document.createElement('button');
+        stopButton.textContent = '■';
+        stopButton.className = 'stop-button';
+        stopButton.onclick = () => {
+            // 停止は "直近で作った音" のみ効くのではなく、全体を止めたい場合
+            document.querySelectorAll("audio").forEach(a => {
+                a.pause();
+                a.currentTime = 0;
+            });
+        };
+
+        buttonGroup.appendChild(button);
+        buttonGroup.appendChild(stopButton);
+        soundBoard.appendChild(buttonGroup);
+    });
+
+    // キー入力で再生
+    document.addEventListener("keydown", (e) => {
+        const key = e.key.toLowerCase(); 
+        const idx = keyMap[key];
+        if (idx !== undefined) {
+            const audio = new Audio("./pre-music_file/" + audioFiles[idx]);
+            audio.play();
+        }
+    });
+</script>
