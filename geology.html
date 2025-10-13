@@ -93,8 +93,10 @@
     }
     .quote {
       cursor: pointer;
-      padding: 2px 4px; /* タッチ領域を広げる */
+      display: inline-block;
+      padding: 4px 6px; /* タッチ領域を広げる */
       border-radius: 4px;
+      -webkit-tap-highlight-color: transparent; /* タップ時のハイライト防止 */
     }
     .list {
       display: flex;
@@ -119,7 +121,7 @@
 </head>
 <body>
   <div class="app">
-    <h1>Web暗記アプリ — モバイル最適化版</h1>
+    <h1>geology</h1>
     <div class="controls">
       <button id="prevBtn">← 前へ</button>
       <button id="nextBtn">次へ →</button>
@@ -185,8 +187,10 @@
         span.innerHTML = parseQuotes(p.text);
 
         span.querySelectorAll('.quote').forEach(q => {
-          q.addEventListener('click', () => {
-            q.classList.toggle('hidden');
+          ['click', 'touchstart'].forEach(evt => {
+            q.addEventListener(evt, () => {
+              q.classList.toggle('hidden');
+            });
           });
         });
 
