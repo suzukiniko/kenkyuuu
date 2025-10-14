@@ -34,7 +34,7 @@
       padding: 10px 14px;
       cursor: pointer;
       font-size: 1rem;
-      min-height: 44px; /* タッチ操作しやすく */
+      min-height: 44px;
     }
     button.primary {
       background: #3b82f6;
@@ -81,6 +81,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      gap: 8px;
     }
     .point span.text {
       flex: 1;
@@ -90,13 +91,6 @@
     }
     .quote.hidden {
       display: none;
-    }
-    .quote {
-      cursor: pointer;
-      display: inline-block;
-      padding: 4px 6px; /* タッチ領域を広げる */
-      border-radius: 4px;
-      -webkit-tap-highlight-color: transparent; /* タップ時のハイライト防止 */
     }
     .list {
       display: flex;
@@ -186,16 +180,18 @@
         span.className = 'text';
         span.innerHTML = parseQuotes(p.text);
 
-        span.querySelectorAll('.quote').forEach(q => {
-          ['click', 'touchstart'].forEach(evt => {
-            q.addEventListener(evt, e => {
-              e.stopPropagation(); // 親のイベントを遮断
-              q.classList.toggle('hidden');
-            });
-          });
+        const toggleBtn = document.createElement('button');
+        toggleBtn.textContent = '表示';
+
+        toggleBtn.addEventListener('click', () => {
+          const quotes = span.querySelectorAll('.quote');
+          const anyHidden = Array.from(quotes).some(q => q.classList.contains('hidden'));
+          quotes.forEach(q => q.classList.toggle('hidden', !anyHidden));
+          toggleBtn.textContent = anyHidden ? '非表示' : '表示';
         });
 
         div.appendChild(span);
+        div.appendChild(toggleBtn);
         pointsArea.appendChild(div);
       });
     }
