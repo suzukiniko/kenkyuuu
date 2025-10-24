@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Web暗記アプリ — モバイル最適化版</title>
+  <title>geology</title>
   <style>
     body {
       margin: 0;
@@ -26,7 +26,7 @@
       width: 100%;
       max-width: 800px;
     }
-    button, input, textarea {
+    button, input, textarea, select {
       font: inherit;
       border: 1px solid #d1d5db;
       border-radius: 8px;
@@ -88,21 +88,25 @@
       line-height: 1.5;
       font-size: 1rem;
     }
+    .quote {
+      color: red;
+      font-weight: bold;
+    }
     .quote.hidden {
-      display: none;
+      visibility: hidden;
     }
-    .list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
     }
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px dashed #e5e7eb;
-      padding: 6px 0;
+    th, td {
+      border-bottom: 1px dashed #d1d5db;
+      text-align: left;
+      padding: 8px;
       font-size: 1rem;
+    }
+    th {
+      background: #f3f4f6;
     }
     footer {
       margin-top: 20px;
@@ -114,7 +118,8 @@
 </head>
 <body>
   <div class="app">
-    <h1>Web暗記アプリ — モバイル最適化版</h1>
+    <h1>Earth Science</h1>
+
     <div class="controls">
       <button id="prevBtn">← 前へ</button>
       <button id="nextBtn">次へ →</button>
@@ -131,12 +136,24 @@
     </div>
 
     <div class="card">
-      <form id="addForm" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <form id="addForm" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <select id="jumpSelect" style="flex:1;">
+          <option value="">単語へジャンプ...</option>
+        </select>
         <input type="text" id="inputWord" placeholder="単語" style="flex:1;" />
         <textarea id="inputPoints" placeholder="ポイントを改行で複数入力可" style="flex:2;"></textarea>
         <button type="submit" class="primary">追加</button>
       </form>
-      <div class="list" id="list"></div>
+      <table id="wordTable">
+        <thead>
+          <tr>
+            <th>単語</th>
+            <th>ポイント数</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="list"></tbody>
+      </table>
     </div>
 
     <footer>ブラウザ内に保存されます。リロードしても内容は保持されます。</footer>
@@ -150,11 +167,13 @@
     const wordArea = document.getElementById('wordArea');
     const pointsArea = document.getElementById('pointsArea');
     const listEl = document.getElementById('list');
+    const jumpSelect = document.getElementById('jumpSelect');
 
     function save() {
       localStorage.setItem(LS_KEY, JSON.stringify(cards));
     }
 
+    // 鉤括弧内赤文字 + 非表示対応
     function parseQuotes(text) {
       return text.replace(/「(.*?)」/g, (match, inner) => {
         return `「<span class='quote hidden'>${inner}</span>」`;
@@ -172,7 +191,7 @@
       wordArea.textContent = card.word;
       pointsArea.innerHTML = '';
 
-      card.points.forEach((p) => {
+      card.points.forEach((p, pointIndex) => {
         const div = document.createElement('div');
         div.className = 'point';
 
@@ -180,110 +199,14 @@
         span.className = 'text';
         span.innerHTML = parseQuotes(p.text);
 
-        const btn = document.createElement('button');
-        btn.textContent = '表示';
-        btn.addEventListener('click', () => {
+        const btns = document.createElement('div');
+        btns.style.display = 'flex';
+        btns.style.gap = '6px';
+
+        const toggleBtn = document.createElement('button');
+        toggleBtn.textContent = '表示';
+        toggleBtn.addEventListener('click', () => {
           const quotes = span.querySelectorAll('.quote');
           const isHidden = quotes[0]?.classList.contains('hidden');
           quotes.forEach(q => q.classList.toggle('hidden', !isHidden));
-          btn.textContent = isHidden ? '非表示' : '表示';
-        });
-
-        div.appendChild(span);
-        div.appendChild(btn);
-        pointsArea.appendChild(div);
-      });
-    }
-
-    function renderList() {
-      listEl.innerHTML = '';
-      cards.forEach((c, i) => {
-        const div = document.createElement('div');
-        div.className = 'item';
-        div.innerHTML = `<b>${c.word}</b> (${c.points.length}ポイント)
-          <div>
-            <button data-i="${i}" class="del">削除</button>
-          </div>`;
-        listEl.appendChild(div);
-      });
-    }
-
-    document.getElementById('prevBtn').onclick = () => {
-      if (cards.length) {
-        idx = (idx - 1 + cards.length) % cards.length;
-        renderViewer();
-      }
-    };
-
-    document.getElementById('nextBtn').onclick = () => {
-      if (cards.length) {
-        idx = (idx + 1) % cards.length;
-        renderViewer();
-      }
-    };
-
-    document.getElementById('shuffleBtn').onclick = () => {
-      if (cards.length < 2) return alert('カードが2枚以上必要です');
-      cards.sort(() => Math.random() - 0.5);
-      idx = 0;
-      save();
-      renderViewer();
-      renderList();
-    };
-
-    document.getElementById('clearBtn').onclick = () => {
-      if (confirm('全てのカードを削除しますか？')) {
-        cards = [];
-        idx = 0;
-        save();
-        renderViewer();
-        renderList();
-      }
-    };
-
-    document.getElementById('addPointBtn').onclick = () => {
-      if (cards.length === 0) return alert('単語を追加してください');
-      const newText = prompt('ポイントを入力（「...」で囲むと非表示可）:');
-      if (newText) {
-        cards[idx].points.push({ text: newText });
-        save();
-        renderViewer();
-      }
-    };
-
-    document.getElementById('addForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const w = document.getElementById('inputWord').value.trim();
-      const ps = document.getElementById('inputPoints').value.trim().split(/\n+/).filter(Boolean);
-
-      if (!w) return alert('単語を入力してください');
-      const newCard = { word: w, points: ps.map(t => ({ text: t })) };
-      cards.push(newCard);
-
-      document.getElementById('inputWord').value = '';
-      document.getElementById('inputPoints').value = '';
-
-      idx = cards.length - 1;
-      save();
-      renderViewer();
-      renderList();
-    });
-
-    listEl.addEventListener('click', (e) => {
-      const btn = e.target.closest('button');
-      if (!btn) return;
-      const i = +btn.dataset.i;
-      if (btn.classList.contains('del')) {
-        cards.splice(i, 1);
-        if (idx >= cards.length) idx = Math.max(0, cards.length - 1);
-        save();
-        renderViewer();
-        renderList();
-      }
-    });
-
-    renderViewer();
-    renderList();
-  </script>
-</body>
-</html>
+          toggleBtn.textContent = isHidden ? '非表示' : '表示';
