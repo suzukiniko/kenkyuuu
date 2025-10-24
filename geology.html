@@ -172,7 +172,7 @@
 
     function parseQuotes(text) {
       return text.replace(/「(.*?)」/g, (match, inner) => {
-        return `<span class='quote hidden'>「${inner}」</span>`;
+        return `「<span class='quote hidden'>${inner}</span>」`;
       });
     }
 
