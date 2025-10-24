@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>geology</title>
+  <title>Web暗記アプリ — モバイル最適化版</title>
   <style>
     body {
       margin: 0;
@@ -93,17 +93,17 @@
       font-weight: bold;
     }
     .quote.hidden {
-      visibility: hidden;
+      display: none;
     }
     table {
       width: 100%;
       border-collapse: collapse;
+      margin-top: 8px;
     }
     th, td {
-      border-bottom: 1px dashed #d1d5db;
+      border-bottom: 1px dashed #e5e7eb;
+      padding: 6px 8px;
       text-align: left;
-      padding: 8px;
-      font-size: 1rem;
     }
     th {
       background: #f3f4f6;
@@ -118,8 +118,7 @@
 </head>
 <body>
   <div class="app">
-    <h1>Earth Science</h1>
-
+    <h1>Web暗記アプリ — モバイル最適化版</h1>
     <div class="controls">
       <button id="prevBtn">← 前へ</button>
       <button id="nextBtn">次へ →</button>
@@ -136,21 +135,20 @@
     </div>
 
     <div class="card">
-      <form id="addForm" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-        <select id="jumpSelect" style="flex:1;">
-          <option value="">単語へジャンプ...</option>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <select id="wordSelect" style="flex:1;">
+          <option value="">単語一覧から選択...</option>
         </select>
+      </div>
+      <form id="addForm" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
         <input type="text" id="inputWord" placeholder="単語" style="flex:1;" />
         <textarea id="inputPoints" placeholder="ポイントを改行で複数入力可" style="flex:2;"></textarea>
         <button type="submit" class="primary">追加</button>
       </form>
-      <table id="wordTable">
+
+      <table>
         <thead>
-          <tr>
-            <th>単語</th>
-            <th>ポイント数</th>
-            <th>操作</th>
-          </tr>
+          <tr><th>単語</th><th>ポイント数</th><th>操作</th></tr>
         </thead>
         <tbody id="list"></tbody>
       </table>
@@ -167,16 +165,15 @@
     const wordArea = document.getElementById('wordArea');
     const pointsArea = document.getElementById('pointsArea');
     const listEl = document.getElementById('list');
-    const jumpSelect = document.getElementById('jumpSelect');
+    const selectEl = document.getElementById('wordSelect');
 
     function save() {
       localStorage.setItem(LS_KEY, JSON.stringify(cards));
     }
 
-    // 鉤括弧内赤文字 + 非表示対応
     function parseQuotes(text) {
       return text.replace(/「(.*?)」/g, (match, inner) => {
-        return `「<span class='quote hidden'>${inner}</span>」`;
+        return `<span class='quote'>「${inner}」</span>`;
       });
     }
 
@@ -191,7 +188,7 @@
       wordArea.textContent = card.word;
       pointsArea.innerHTML = '';
 
-      card.points.forEach((p, pointIndex) => {
+      card.points.forEach((p, pi) => {
         const div = document.createElement('div');
         div.className = 'point';
 
@@ -199,14 +196,142 @@
         span.className = 'text';
         span.innerHTML = parseQuotes(p.text);
 
-        const btns = document.createElement('div');
-        btns.style.display = 'flex';
-        btns.style.gap = '6px';
+        const btnGroup = document.createElement('div');
+        btnGroup.style.display = "flex";
+        btnGroup.style.gap = "6px";
 
-        const toggleBtn = document.createElement('button');
-        toggleBtn.textContent = '表示';
-        toggleBtn.addEventListener('click', () => {
+        const showBtn = document.createElement('button');
+        showBtn.textContent = '非表示';
+        showBtn.addEventListener('click', () => {
           const quotes = span.querySelectorAll('.quote');
-          const isHidden = quotes[0]?.classList.contains('hidden');
-          quotes.forEach(q => q.classList.toggle('hidden', !isHidden));
-          toggleBtn.textContent = isHidden ? '非表示' : '表示';
+          const hidden = quotes[0]?.classList.contains('hidden');
+          quotes.forEach(q => q.classList.toggle('hidden', !hidden));
+          showBtn.textContent = hidden ? '非表示' : '表示';
+        });
+
+        const editBtn = document.createElement('button');
+        editBtn.textContent = '編集';
+        editBtn.addEventListener('click', () => {
+          const newText = prompt('新しいポイント内容を入力:', p.text);
+          if (newText !== null) {
+            cards[idx].points[pi].text = newText;
+            save();
+            renderViewer();
+          }
+        });
+
+        btnGroup.appendChild(showBtn);
+        btnGroup.appendChild(editBtn);
+        div.appendChild(span);
+        div.appendChild(btnGroup);
+        pointsArea.appendChild(div);
+      });
+    }
+
+    function renderList() {
+      listEl.innerHTML = '';
+      selectEl.innerHTML = '<option value="">単語一覧から選択...</option>';
+      cards.forEach((c, i) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${c.word}</td>
+          <td>${c.points.length}</td>
+          <td>
+            <button data-i="${i}" class="jump">移動</button>
+            <button data-i="${i}" class="del">削除</button>
+          </td>`;
+        listEl.appendChild(tr);
+
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = c.word;
+        selectEl.appendChild(opt);
+      });
+    }
+
+    document.getElementById('prevBtn').onclick = () => {
+      if (cards.length) {
+        idx = (idx - 1 + cards.length) % cards.length;
+        renderViewer();
+      }
+    };
+
+    document.getElementById('nextBtn').onclick = () => {
+      if (cards.length) {
+        idx = (idx + 1) % cards.length;
+        renderViewer();
+      }
+    };
+
+    document.getElementById('shuffleBtn').onclick = () => {
+      if (cards.length < 2) return alert('カードが2枚以上必要です');
+      cards.sort(() => Math.random() - 0.5);
+      idx = 0;
+      save();
+      renderViewer();
+      renderList();
+    };
+
+    document.getElementById('clearBtn').onclick = () => {
+      if (confirm('全てのカードを削除しますか？')) {
+        cards = [];
+        idx = 0;
+        save();
+        renderViewer();
+        renderList();
+      }
+    };
+
+    document.getElementById('addPointBtn').onclick = () => {
+      if (cards.length === 0) return alert('単語を追加してください');
+      const newText = prompt('ポイントを入力（「...」で囲むと赤文字に）:');
+      if (newText) {
+        cards[idx].points.push({ text: newText });
+        save();
+        renderViewer();
+      }
+    };
+
+    document.getElementById('addForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const w = document.getElementById('inputWord').value.trim();
+      const ps = document.getElementById('inputPoints').value.trim().split(/\n+/).filter(Boolean);
+      if (!w) return alert('単語を入力してください');
+      const newCard = { word: w, points: ps.map(t => ({ text: t })) };
+      cards.push(newCard);
+      document.getElementById('inputWord').value = '';
+      document.getElementById('inputPoints').value = '';
+      idx = cards.length - 1;
+      save();
+      renderViewer();
+      renderList();
+    });
+
+    listEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      const i = +btn.dataset.i;
+      if (btn.classList.contains('del')) {
+        cards.splice(i, 1);
+        if (idx >= cards.length) idx = Math.max(0, cards.length - 1);
+        save();
+        renderViewer();
+        renderList();
+      } else if (btn.classList.contains('jump')) {
+        idx = i;
+        renderViewer();
+      }
+    });
+
+    selectEl.addEventListener('change', (e) => {
+      if (e.target.value !== '') {
+        idx = +e.target.value;
+        renderViewer();
+      }
+    });
+
+    renderViewer();
+    renderList();
+  </script>
+</body>
+</html>
