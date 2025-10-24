@@ -93,7 +93,7 @@
       font-weight: bold;
     }
     .quote.hidden {
-      display: none;
+      visibility: hidden;
     }
     table {
       width: 100%;
@@ -173,7 +173,7 @@
 
     function parseQuotes(text) {
       return text.replace(/「(.*?)」/g, (match, inner) => {
-        return `<span class='quote'>「${inner}」</span>`;
+        return `<span class='quote hidden'>「${inner}」</span>`;
       });
     }
 
@@ -201,7 +201,7 @@
         btnGroup.style.gap = "6px";
 
         const showBtn = document.createElement('button');
-        showBtn.textContent = '非表示';
+        showBtn.textContent = '表示';
         showBtn.addEventListener('click', () => {
           const quotes = span.querySelectorAll('.quote');
           const hidden = quotes[0]?.classList.contains('hidden');
