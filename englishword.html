@@ -17,9 +17,8 @@ button { margin:5px; padding:10px 20px; }
 <div class="card">
 <h2>英単語ランダム表示</h2>
 <div id="english" class="word"></div>
-<div id="japanese" class="meaning"></div>
+<div id="japanese" class="meaning hidden"></div>
 
-<button onclick="toggleEnglish()">英語表示/非表示</button>
 <button onclick="toggleJapanese()">日本語表示/非表示</button>
 <button onclick="nextWord()">次の単語</button>
 </div>
@@ -33,11 +32,6 @@ function nextWord() {
   document.getElementById("english").textContent = english[i];
   document.getElementById("japanese").textContent = japanese[i];
   document.getElementById("english").classList.remove("hidden");
-  document.getElementById("japanese").classList.remove("hidden");
-}
-
-function toggleEnglish() {
-  document.getElementById("english").classList.toggle("hidden");
 }
 
 function toggleJapanese() {
