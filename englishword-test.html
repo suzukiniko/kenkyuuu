@@ -49,9 +49,23 @@ button { margin:5px; padding:10px 20px; }
 次へ
 </button>
 
+<button onclick="markCorrect()">○ 正解</button>
+<button onclick="markWrong()">× 不正解</button>
+
 <p id="result"></p>
 
+<button
+    id="retryWrong"
+    style="display:none"
+    onclick="retryWrongQuestions()">
+
+    間違えた問題だけ再テスト
+
+</button>
+
 <script>
+let wrongAnswers = [];
+
 const english = ["oppose", "advice", "tip", "blame", "argue", "claim", "complain", "grateful", "apologize", "excuse", "admire", "invent", "develop", "produce", "establish", "save", "patient", "suffer", "fever", "custom ", "ancestor", "survey ", "public", "nation", "capital", "state", "political", "sum", "budget", "wealth", "ruin", "croud", "wander", "certain", "probably", "avoid", "encourage", "prevent", "deny", "enable", "operate", "sew", "pour", "spill", "pretend", "behave", "bear", "appear", "remain", "include", "contain", "gather", "senior", "review", "expect", "predict", "remind", "realize", "appreciate", "accept", "consider", "mind", "wonder", "compare", "concentrate", "admit", "pollution", "harvest", "degree", "flood", "polite", "lazy", "strict", "character", "characteristic", "feature", "detail", "fault", "ideal", "appropriate", "matter", "lively", "terrible", "awful", "thin", "loose", "raw", "smooth", "familar", "similar", "differ", "vary", "specific", "unusual", "divide", "weigh", "pile", "figure", "prepare", "apply", "modern", "latter", "lend", "rent", "item", "present", "stuff", "leisure", "furniture", "story", "site", "row", "novel", "tune", "passage", "rumor", "pronounce", "publish", "depend", "rely", "beg", "prefer", "weep", "anxious", "satisfy", "annoy", "bother", "disturb", "frighten", "upset", "regret", "favor", "pity", "manner", "purpose", "sake", "right", "hardly", "nearly", "partly", "actually", "indeed", "expect", "criticize", "accuse", "insist", "object", "protest", "controversial", "bound", "bet", "praise", "honor", "mention", "convey", "emphazsize", "exaggerate", "reply", "respond", "remark", "observe", "theory", "analysis", "device", "substance", "statistics", "pursue", "accomplish", "fulfill", "devote", "dizzy", "appetite", "starve", "ache", "surgery", "disease", "symptom", "ambulance", "recover", "sore", "swell", "bleed", "faint", "exhaust", "disabled", "stiff", "tongue", "sweat", "nationality", "racial", "domestic", "rural", "suburb", "burden", "impact", "status", "reputation", "religion", "prosperity", "crisis", "prejudice", "discrimination", "benefit", "welfare", "individual", "official", "immigrant", "contribute", "abolish"];
 
 const japanese = ["[他] ～に反対する", "[他] ～に忠告する", "[名] ①助言，ヒント ②チップ ③（足や山などの）先，先端（いずれも〈可算〉）", "[他] ～に責任があるとする ", "[他] ①（that S V）～と主張する [自] ②（with ～）（～と）言い争う", "[他] ①（that S V）～と主張する ②～を要求する，主張する [名] ③主張，要求", " [自] ①文句を言う，苦情を言う ②（of ～）（病気などを）訴える", "[形] 感謝している", " [自] （to ～）（～に）謝る ", "[名] ①言い訳 [他] ②～を許す ③（A from B）（B からA）を免除する", "[他] ～に感心する，称賛する ", "[他] ①～を発明する ②（話など）をでっち上げる ", "[自] ①発達する [他] ②～を発達させる③～を開発する ④（話，考え）を発展させる ⑤（病気）にかかる", "[他] ①～を生産する，産出する ②（見せるために）～を取り出す [名] ③農作物〈不可算〉", "[他] ①～を確立する，定着させる ②～を設立する", "[他] ①（時間，手間）を省く ②～を貯金する ③（命など）を救う [前] ④～を除いて（＝except）", "[名] ①患者 [形] ②忍耐強い ", "[自] ①（from ～）（病気などで）苦しむ [他]②（苦痛，損害）を経験する", "[名] ①（体温の）熱 ②熱狂", "[名] ①習慣 ②（－s）税関", "[名] 祖先", "[名] ①調査〈可算〉 [他] ②～を調査する", "[名] ①（the －）大衆 [形] ②公の，公共の ", "[名] ①国家 ②（the －） 国民", "[名] ①首都 ②資本 [形] ③重大な，死に値する ", "[名] ①州 ②状態 ③国家 [他] ④（意見，情報）を述べる", "[形] 政治的な，政治の ", "[名] ①（修飾語を伴って）金額 ②合計 ③（簡単な）計算 [他] ④（up）～を要約する", "[名] 予算 ", "[名] ①富，財産〈不可算〉 ②（a － of ～）豊富な～ ", "[他] ①～を台無しにする ②～を破滅させる [名] ③（－s）廃墟，荒廃", "[名] 群衆 ", "[自] 歩き回る，さまよう ", "[形] ①確かな ②（名詞の前で）ある～ ", "[副] おそらく", "[他] ～を避ける ", "[他] ①（A to do ）（A）に（～するよう）促す，奨励する②～を励ます", "[他] ①～を妨げる ②～を予防する", "[他] ①～を否定する ②〈S V O1 O2〉（O1）に（O2を）与えない", "[他] （A to do ）（A）に［が］（～することを）可能にする ", "[他] ①（機械など）を操作する [自] ②手術する ③（機械などが）作動する，（組織が）運営される", "[他] ①～を縫う ②（on）（ボタンなど）を縫いつける", "[他] ①～を注ぐ [自] ②降りそそぐ ", "[他] ①～をこぼす [名] ②（石油などの）流出", "[自] （to do / that S V）（～する/ ～である）ふりをする", "[自] ふるまう", "[他] ①（can －）～に耐える ②～を持つ ③～を産む", "[自] ①現れる ②（to be ～）～のように思える ", "[自] ①～のままでいる ②残る", "[他] ～を含む", "[他] ①～を含む ②～を抑える", "[他] ①～を集める [自] ②集まる ", "[名] ①（高校，大学の）最上級生 [形] ②高齢者の ③（地位が）上位の", "[名] ①再検討 ②（新聞などの）批評 ③復習 ", "[他] ①～を予期する ②（A of［from］ B）（BにA）を期待する ③（be －ing）（～を）身ごもっている", "[他] ～を予測する", "[他] ①（A of B）（A）に（B のことを）思い出させる ②（（人）to do ）（人）に～するように念を押す", "[他] ①～を（はっきり）理解する ②（夢，計画など）を実現する", "[他] ①～を（正しく）理解する ②～のよさがわかる ③～に感謝する", "[他] ～を受け入れる ", "[他] ①～をよく考える，考慮する ②（人の気持ち）を思いやる ③（A （to be） B） （A）を（B と）みなす", "[自] ①気にする [名] ②精神，頭脳 ③（才能，知性のある）人", "[他] ①（wh－節 / if S V）～かなと思う [自] ②（at ～）（～に）驚く", "[他] ①（A with［to, and］ B）（A）を（B と）比較する ② （A to B）（A）を（B に）例える [自] ③（with［to］～）（～に）匹敵する", "[自] ①（on ～）（～に）集中する [他] ②（A on B）（A）を（B に）集中させる", "[他] ①～を認める ②～の入場［入学］を許可する", "[名] 汚染，公害〈不可算〉", "[名] ①収穫 [他] ②～を収穫する ③（臓器，体液など）を摘出する", "[名] ①（温度などの）度 ②程度 ③ 学位 ", "[名] ①洪水 [他] ②～を水浸しにする", "[形] （人，言動が）礼儀正しい", "[形] ①（やる気がなく）怠惰な，いい加減な ②（名詞の前で）くつろいだ", "[形] 厳しい", "[名] ①性格，特徴 ②登場人物 ③文字", "[名] ①特徴〈可算〉 [形] ②特有の，特徴的な", "[名] ①特徴 ②特集記事 [他] ③～を特集する", "[名] ①詳細 ②（建物などの）細部", "[名] ①（ちょっとした）欠点，不具合〈可算〉②（one ’s －）責任〈不可算〉 ③断層", "[形] ①理想的な，申し分のない [名] ②理想，理想的な姿", "[形] 適切な", "[自] ①重要である [名] ②（修飾語を伴い）物質 ③ （－s）事態，状況", "[形] 生き生きとした", "[形] ①ひどい ②苦手で", "[形] ひどい，不快な", "[形] ①薄い ②（病的に）やせた ③（毛が）薄い", "[形] ①ゆるい ②解き放たれた", "[形] 生の，加工されていない", "[形] ①滑らかな ②順調な [他] ③（服のしわ）をのばす，（髪）をなでつける", "[形] ①知られた ②（人が）（よく）知っている", "[形] （to ～）（～に）似た", "[自] 異なる", "[自] さまざまだ，変わる", "[形] ①特定の ②明確な，具体的な", "[形] 珍しい", "[他] ①～を分割する ②（by ～）（～によって）（数字）を割る", "[自] ①～の重さがある [他] ②～の重さを量る ③～を（比較）検討する", "[名] ①積み重ね，山 ②多量 [他] ③～を積み重ねる", "[名] ①数字 ②人物 ③スタイル，体つき④図 [自] ⑤目立つ", "[他] ①～の準備をする，用意をする [自] ②準備をする，用意をする [形] ③（be －d to do ）（～する）準備ができている", "[自] ①（to ～）（～に）当てはまる ②（for～）（～に）申し込む [他] ③～を当てはめる，応用する ④（薬，口紅など）を塗る", "[形] ①現代の ②近代的な", "[形] ①後半の [名] ②（the －）後者", "[他] ①（無償で）～を貸す ②（銀行が利子をつけて）を貸す", "[他] ①～を借りる ②（A to B）（A）を（B に）賃貸しする [名] ③家賃，賃貸料，使用料", "[名] ①品物 ②項目 ③（短い）記事", "[名] ①プレゼント ②現在 [形] ③現在の ④ 出席して，存在して [他] ⑤～を贈る，提示する", "[名] ①（漠然とした）もの [他] ②～を詰める", "[名] ①余暇 ②（形容詞的に）余暇の", "[名] 家具〈不可算〉", "[名] 階", "[名] ①用地 ②現場，場所 ③（史跡などの）跡", "[名] ①列 [他] ②（ボート）をこぐ", "[名] ①小説 [形] ②斬新な", "[名] ①曲 [自] ②（番組）にチャンネルを合わせる [他] ③～の調子を合わせる", "[名] ①（文章などの）一節 ②（時の）経過，移動 ③通路", "[名] うわさ", "[他] ①（単語など）を発音する ②（判決など）を宣告する，～と断言する", "[他] ①～を出版する ②（公式に結果など）を発表する", "[自] ①（物，事が主語）（on ～）（～）次第である ②（人が主語）（on ～）（～に）頼っている", "[自] （on ～）（～に）頼る", "[他] ①～を嘆願する [自] ②求める ", "[他] （A to B） （B よりA）を好む", "[自] しくしく泣く", "[形] ①（about ～）（～を）心配して ②（to do / for ～）（～を）切望して", "[他] ①～を満足させる ②（必要性，空腹など）を満たす", "[他] ～をいらだたせる", "[他] ①～に面倒をかける ②（to do ）わざわざ～する [名] ③面倒なもの", "[他] ①（うるさくして）～に迷惑をかける ② （平和など）を乱す", "[他] ～をおびえさせる", "[他] ①～を動揺させる ②（均衡など）を乱す [形] ③動揺して，腹を立てて", "[他] ①～を後悔する ②（to do ）残念ながら～しないといけない [名] ③後悔", "[名] ①親切な行為 ②支持", "[名] ①残念なこと〈可算〉 ②哀れみ〈不可算〉", "[名] ①方法 ②流儀，態度 ③（－s）マナー", "[名] 目的", "[名] ①（for ～）ため ②日本酒", "[副] ①（場所や時の副詞（句）を修飾して）ちょうど[形] ②正しい，適切な ③右の[名] ④（to ～）（～の）権利", "[副] ①（程度）ほとんど～ない ②（－ ever）めったに～ない", "[副] ①ほとんど ②あやうく～しかける", "[副] ある程度，部分的に", "[副] ①実は ②実際に", "[副] ①（強調として）実際に，本当に ②（but を伴って）確かに～", "[前] ①～を除いて ②（for ～）（～を）除いて", "[他] ～を批判する", "[他] ①～を非難する ②～を告訴する ", "[自] ①（on ～）（～と）言い張る，（強く）主張する [他] ②～と主張する", "[自] ①（to ～）（～に感情的に）反対する [名] ②物 ③目的 ④（嘲笑，欲望などの）対象", "[自] ①（against ～）（～に対して）抗議する [名] ② 抗議", "[形] 論争を招く，物議をかもす ", "[形] ①（to do ）きっと～（する，～する［である］に違いない） ②（for ～）～行きで", "[他] ①（that S V）きっと～だと思う ②～を賭ける", "[他] ①（A for B）（A）を（B のことで）褒める，称える [名] ②賞賛", "[名] ①名誉，栄誉 [他] ②～を敬う", "[自] （to ～）①（人が主語）（～に）言及する，参照する ②（物が主語）（～を）示す", "[他] ①～を伝える ②（乗客，音，病気など）を運ぶ", "[他] ～を強調する", "[他] ①～を誇張する [自] ②誇張する，大げさに言う", "[自] ①（to ～）（～に）返事をする，答える [名] ②返事，答え", "[自] ①（to ～）（手紙や問いなどに）返答する ②（to ～）（～に）対応する，反応する", "[名] ①発言 [他] ②～と発言する ", "[他] ①～を観察する ②（that S V）（気づいたことを）～と述べる ③（規則など）を遵守する ④（記念日など）を祝う", "[名] ①理論 ②（学）説 ", "[名] 分析", "[名] 装置 ", "[名] ①物質 ②本質，根拠 ", "[名] ①統計（値）〈複数扱い〉 ②統計学〈不可算〉 ", "[他] ①～を追求する，続ける ②～を追跡する ", "[他] ～をやり遂げる ", "[他] ①（義務，願望など）を果たす ②（必要など）を満たす", "[他] （A to B） （A）を（B に）ささげる", "[形] めまいがして", "[名] 食欲 ", "[自] ①（be －ing）とてもお腹が空いている ②餓死する", "[名] ①痛み [自] ②痛む ", "[名] ①手術 ②外科（① ②ともに〈不可算〉)", "[名] 病気 ", "[名] ①（通例 －s）症状 ②兆候", "[名] 救急車 ", "[自] ①（from ～）（～から）回復する [他] ②（盗品など）を取り戻す", "[形] ①（のどや筋肉が）痛い ②（話題など）触れてほしくない，心が痛む", "[自] ①（手足などが）腫れる ②（風船，費用などが）膨らむ", "[自] 出血する ", "[形] ①（色，光などが）かすかな [自] ②気絶する [名] ③気絶", "[他] ①～を疲れ果てさせる ②～を使い果たす [名] ③排出，排気ガス", "[形] ①障がいのある [名] ②（the －）（集合的に）障がいのある人", "[形] ①（筋肉などが）凝った，（動かすと）痛い ② 堅い", "[名] ①舌 ②言語，言葉 ③（have a ～ tongue）話し方", "[名] ①汗（通例〈不可算〉） [自] ②汗をかく ", " [名] 国籍", "[形] 人種の，民族の", "[形] ①国内の ②家庭内の ", "[形] 田舎の ", "[名] （通例the －s）郊外", "[名] 重荷，負担 ", "[名] ①（on ～）（～への）影響 ②（物体間の）衝撃 [自] ③（on ～）（～に）影響を及ぼす", " [名] ①地位 ②（特定の時点の）状況", "[名] （人，物の）評判〈可算〉", "[名] 宗教", "[名] 繁栄", "[名] 危機", "[名] ①偏見，先入観 [他] ②～に偏見をもたせる", "[名] ①差別 ②識別", "[名] ①恩恵 ②（－s）手当 [自] ③（from～）（～から）利益を得る [他] ④～に利益を与える", "[名] ①福祉 ②（健康なども含めた）幸福 ③生活保護", "[名] ①個人，個体 [形] ②個人の，個々の", "[名] ①役人，役員 [形] ②公式の", "[名] （外国からの）移民 ", "[自] （to ～）①（～に）貢献する ②（～の）一因となる [他] ③（A to B）（A）を（B に）寄付する，提供する", "[他] ～を廃止する "];
@@ -108,10 +122,16 @@ function showQuestion(){
         document.getElementById("english").textContent = "";
         document.getElementById("japanese").textContent = "";
 
-        document.getElementById("result").textContent =
-            "テスト終了（" + order.length + "問）";
+        document.getElementById("result").innerHTML =
+            "テスト終了<br>" +
+            "間違えた問題数：" +
+            wrongAnswers.length +
+            "問";
 
-        return;
+        document.getElementById("retryWrong").style.display =
+            "inline-block";
+
+    return;
     }
 
     const idx = order[currentPos];
@@ -141,6 +161,62 @@ function nextQuestion(){
 
     showQuestion();
 }
+
+function markCorrect() {
+    nextQuestion();
+}
+
+function markWrong() {
+
+    const idx = order[currentPos];
+
+    if (!wrongAnswers.includes(idx)) {
+        wrongAnswers.push(idx);
+    }
+
+    nextQuestion();
+}
+
+function retryWrongQuestions(){
+
+    if(wrongAnswers.length === 0){
+
+        alert("間違えた問題はありません");
+
+        return;
+    }
+
+    order = [...wrongAnswers];
+
+    shuffle(order);
+
+    wrongAnswers = [];
+
+    currentPos = 0;
+
+    document.getElementById("total").textContent =
+        order.length;
+
+    document.getElementById("result").textContent = "";
+
+    showQuestion();
+}
+
+let wrongList = "<h3>間違えた単語</h3><ul>";
+
+wrongAnswers.forEach(i => {
+    wrongList += "<li>"
+        + english[i]
+        + " : "
+        + japanese[i]
+        + "</li>";
+});
+
+wrongList += "</ul>";
+
+document.getElementById("result").innerHTML =
+    wrongList;
+
 </script>
 </body>
 </html>
